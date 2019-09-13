@@ -1,0 +1,411 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0BBCDCDFC487EEC929E42633 /* Pods_FrogogoTestApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86C90E1474954817BA7B2489 /* Pods_FrogogoTestApp.framework */; };
+		EB5ADCD8232BF89400FA8DC4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5ADCD7232BF89400FA8DC4 /* AppDelegate.swift */; };
+		EB5ADCDF232BF89500FA8DC4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB5ADCDE232BF89500FA8DC4 /* Assets.xcassets */; };
+		EB5ADCE2232BF89500FA8DC4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB5ADCE0232BF89500FA8DC4 /* LaunchScreen.storyboard */; };
+		EBE46D69232BF99D00FBD945 /* UsersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE46D67232BF99D00FBD945 /* UsersListViewController.swift */; };
+		EBE46D6A232BF99D00FBD945 /* UsersListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBE46D68232BF99D00FBD945 /* UsersListViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3A830189389AEA64EB457F30 /* Pods-FrogogoTestApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FrogogoTestApp.debug.xcconfig"; path = "Target Support Files/Pods-FrogogoTestApp/Pods-FrogogoTestApp.debug.xcconfig"; sourceTree = "<group>"; };
+		86C90E1474954817BA7B2489 /* Pods_FrogogoTestApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FrogogoTestApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FDC0C1E3370E23FA00DBD79 /* Pods-FrogogoTestApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FrogogoTestApp.release.xcconfig"; path = "Target Support Files/Pods-FrogogoTestApp/Pods-FrogogoTestApp.release.xcconfig"; sourceTree = "<group>"; };
+		EB5ADCD4232BF89400FA8DC4 /* FrogogoTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FrogogoTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB5ADCD7232BF89400FA8DC4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EB5ADCDE232BF89500FA8DC4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EB5ADCE1232BF89500FA8DC4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EB5ADCE3232BF89500FA8DC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EBE46D67232BF99D00FBD945 /* UsersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListViewController.swift; sourceTree = "<group>"; };
+		EBE46D68232BF99D00FBD945 /* UsersListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UsersListViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EB5ADCD1232BF89400FA8DC4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0BBCDCDFC487EEC929E42633 /* Pods_FrogogoTestApp.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A004A7EFE500DBAEF0EDCB12 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3A830189389AEA64EB457F30 /* Pods-FrogogoTestApp.debug.xcconfig */,
+				9FDC0C1E3370E23FA00DBD79 /* Pods-FrogogoTestApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		AD103D15532B7B13ABF25E18 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				86C90E1474954817BA7B2489 /* Pods_FrogogoTestApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EB5ADCCB232BF89400FA8DC4 = {
+			isa = PBXGroup;
+			children = (
+				EB5ADCD6232BF89400FA8DC4 /* FrogogoTestApp */,
+				EB5ADCD5232BF89400FA8DC4 /* Products */,
+				A004A7EFE500DBAEF0EDCB12 /* Pods */,
+				AD103D15532B7B13ABF25E18 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		EB5ADCD5232BF89400FA8DC4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EB5ADCD4232BF89400FA8DC4 /* FrogogoTestApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EB5ADCD6232BF89400FA8DC4 /* FrogogoTestApp */ = {
+			isa = PBXGroup;
+			children = (
+				EB5ADCD7232BF89400FA8DC4 /* AppDelegate.swift */,
+				EBE46D66232BF96100FBD945 /* UsersList */,
+				EB5ADCDE232BF89500FA8DC4 /* Assets.xcassets */,
+				EB5ADCE0232BF89500FA8DC4 /* LaunchScreen.storyboard */,
+				EB5ADCE3232BF89500FA8DC4 /* Info.plist */,
+			);
+			path = FrogogoTestApp;
+			sourceTree = "<group>";
+		};
+		EBE46D66232BF96100FBD945 /* UsersList */ = {
+			isa = PBXGroup;
+			children = (
+				EBE46D67232BF99D00FBD945 /* UsersListViewController.swift */,
+				EBE46D68232BF99D00FBD945 /* UsersListViewController.xib */,
+			);
+			path = UsersList;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EB5ADCD3232BF89400FA8DC4 /* FrogogoTestApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB5ADCE6232BF89500FA8DC4 /* Build configuration list for PBXNativeTarget "FrogogoTestApp" */;
+			buildPhases = (
+				9BC582AC5B886203ED24990B /* [CP] Check Pods Manifest.lock */,
+				EB5ADCD0232BF89400FA8DC4 /* Sources */,
+				EB5ADCD1232BF89400FA8DC4 /* Frameworks */,
+				EB5ADCD2232BF89400FA8DC4 /* Resources */,
+				8EF30C64084BCB74536908DE /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FrogogoTestApp;
+			productName = FrogogoTestApp;
+			productReference = EB5ADCD4232BF89400FA8DC4 /* FrogogoTestApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EB5ADCCC232BF89400FA8DC4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1030;
+				LastUpgradeCheck = 1030;
+				ORGANIZATIONNAME = "Narek Stepanyan";
+				TargetAttributes = {
+					EB5ADCD3232BF89400FA8DC4 = {
+						CreatedOnToolsVersion = 10.3;
+					};
+				};
+			};
+			buildConfigurationList = EB5ADCCF232BF89400FA8DC4 /* Build configuration list for PBXProject "FrogogoTestApp" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EB5ADCCB232BF89400FA8DC4;
+			productRefGroup = EB5ADCD5232BF89400FA8DC4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EB5ADCD3232BF89400FA8DC4 /* FrogogoTestApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EB5ADCD2232BF89400FA8DC4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB5ADCE2232BF89500FA8DC4 /* LaunchScreen.storyboard in Resources */,
+				EB5ADCDF232BF89500FA8DC4 /* Assets.xcassets in Resources */,
+				EBE46D6A232BF99D00FBD945 /* UsersListViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8EF30C64084BCB74536908DE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FrogogoTestApp/Pods-FrogogoTestApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FrogogoTestApp/Pods-FrogogoTestApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FrogogoTestApp/Pods-FrogogoTestApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9BC582AC5B886203ED24990B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FrogogoTestApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EB5ADCD0232BF89400FA8DC4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB5ADCD8232BF89400FA8DC4 /* AppDelegate.swift in Sources */,
+				EBE46D69232BF99D00FBD945 /* UsersListViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		EB5ADCE0232BF89500FA8DC4 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EB5ADCE1232BF89500FA8DC4 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EB5ADCE4232BF89500FA8DC4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EB5ADCE5232BF89500FA8DC4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EB5ADCE7232BF89500FA8DC4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A830189389AEA64EB457F30 /* Pods-FrogogoTestApp.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5B87H2U8KV;
+				INFOPLIST_FILE = FrogogoTestApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = NRKK.DEV.FrogogoTestApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EB5ADCE8232BF89500FA8DC4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9FDC0C1E3370E23FA00DBD79 /* Pods-FrogogoTestApp.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5B87H2U8KV;
+				INFOPLIST_FILE = FrogogoTestApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = NRKK.DEV.FrogogoTestApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EB5ADCCF232BF89400FA8DC4 /* Build configuration list for PBXProject "FrogogoTestApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB5ADCE4232BF89500FA8DC4 /* Debug */,
+				EB5ADCE5232BF89500FA8DC4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EB5ADCE6232BF89500FA8DC4 /* Build configuration list for PBXNativeTarget "FrogogoTestApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB5ADCE7232BF89500FA8DC4 /* Debug */,
+				EB5ADCE8232BF89500FA8DC4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EB5ADCCC232BF89400FA8DC4 /* Project object */;
+}
