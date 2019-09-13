@@ -13,6 +13,9 @@
 		EB5ADCE2232BF89500FA8DC4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB5ADCE0232BF89500FA8DC4 /* LaunchScreen.storyboard */; };
 		EBE46D69232BF99D00FBD945 /* UsersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE46D67232BF99D00FBD945 /* UsersListViewController.swift */; };
 		EBE46D6A232BF99D00FBD945 /* UsersListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBE46D68232BF99D00FBD945 /* UsersListViewController.xib */; };
+		EBE46D6C232BFB2F00FBD945 /* UsersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE46D6B232BFB2F00FBD945 /* UsersListViewModel.swift */; };
+		EBE46D6F232BFC7500FBD945 /* UsersAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE46D6E232BFC7500FBD945 /* UsersAPIRequest.swift */; };
+		EBE46D71232BFFBE00FBD945 /* UsersDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE46D70232BFFBE00FBD945 /* UsersDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		EB5ADCE3232BF89500FA8DC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EBE46D67232BF99D00FBD945 /* UsersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListViewController.swift; sourceTree = "<group>"; };
 		EBE46D68232BF99D00FBD945 /* UsersListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UsersListViewController.xib; sourceTree = "<group>"; };
+		EBE46D6B232BFB2F00FBD945 /* UsersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListViewModel.swift; sourceTree = "<group>"; };
+		EBE46D6E232BFC7500FBD945 /* UsersAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersAPIRequest.swift; sourceTree = "<group>"; };
+		EBE46D70232BFFBE00FBD945 /* UsersDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				EB5ADCD7232BF89400FA8DC4 /* AppDelegate.swift */,
+				EBE46D6D232BFC5700FBD945 /* DataManager */,
 				EBE46D66232BF96100FBD945 /* UsersList */,
 				EB5ADCDE232BF89500FA8DC4 /* Assets.xcassets */,
 				EB5ADCE0232BF89500FA8DC4 /* LaunchScreen.storyboard */,
@@ -91,9 +98,19 @@
 			isa = PBXGroup;
 			children = (
 				EBE46D67232BF99D00FBD945 /* UsersListViewController.swift */,
+				EBE46D6B232BFB2F00FBD945 /* UsersListViewModel.swift */,
 				EBE46D68232BF99D00FBD945 /* UsersListViewController.xib */,
 			);
 			path = UsersList;
+			sourceTree = "<group>";
+		};
+		EBE46D6D232BFC5700FBD945 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				EBE46D6E232BFC7500FBD945 /* UsersAPIRequest.swift */,
+				EBE46D70232BFFBE00FBD945 /* UsersDataManager.swift */,
+			);
+			path = DataManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,7 +229,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB5ADCD8232BF89400FA8DC4 /* AppDelegate.swift in Sources */,
+				EBE46D6C232BFB2F00FBD945 /* UsersListViewModel.swift in Sources */,
+				EBE46D6F232BFC7500FBD945 /* UsersAPIRequest.swift in Sources */,
 				EBE46D69232BF99D00FBD945 /* UsersListViewController.swift in Sources */,
+				EBE46D71232BFFBE00FBD945 /* UsersDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
