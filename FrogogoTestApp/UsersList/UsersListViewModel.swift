@@ -22,10 +22,9 @@ class UsersListViewModel {
             .map { $0.element ?? [] }
         
         let errorText = dataManager.result
-            .map { $0.error }
+            .map { $0.error as? UsersDataManagerError }
             .filter { $0 != nil }
-            .map { $0 as! UsersDataManager.UsersDataManagerError }
-            .map { $0.text }
+            .map { $0!.text }
         
         error = errorText.asDriver(onErrorJustReturn: "")
         users = data.asDriver(onErrorJustReturn: [])

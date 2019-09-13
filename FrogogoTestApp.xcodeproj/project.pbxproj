@@ -16,6 +16,8 @@
 		EBE46D6C232BFB2F00FBD945 /* UsersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE46D6B232BFB2F00FBD945 /* UsersListViewModel.swift */; };
 		EBE46D6F232BFC7500FBD945 /* UsersAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE46D6E232BFC7500FBD945 /* UsersAPIRequest.swift */; };
 		EBE46D71232BFFBE00FBD945 /* UsersDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE46D70232BFFBE00FBD945 /* UsersDataManager.swift */; };
+		EBE8FA13232C3B1300827898 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE8FA11232C3B1300827898 /* UserCell.swift */; };
+		EBE8FA14232C3B1300827898 /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBE8FA12232C3B1300827898 /* UserCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		EBE46D6B232BFB2F00FBD945 /* UsersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListViewModel.swift; sourceTree = "<group>"; };
 		EBE46D6E232BFC7500FBD945 /* UsersAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersAPIRequest.swift; sourceTree = "<group>"; };
 		EBE46D70232BFFBE00FBD945 /* UsersDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersDataManager.swift; sourceTree = "<group>"; };
+		EBE8FA11232C3B1300827898 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		EBE8FA12232C3B1300827898 /* UserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,7 @@
 		EBE46D66232BF96100FBD945 /* UsersList */ = {
 			isa = PBXGroup;
 			children = (
+				EBE8FA10232C3AEA00827898 /* UserCell */,
 				EBE46D67232BF99D00FBD945 /* UsersListViewController.swift */,
 				EBE46D6B232BFB2F00FBD945 /* UsersListViewModel.swift */,
 				EBE46D68232BF99D00FBD945 /* UsersListViewController.xib */,
@@ -111,6 +116,15 @@
 				EBE46D70232BFFBE00FBD945 /* UsersDataManager.swift */,
 			);
 			path = DataManager;
+			sourceTree = "<group>";
+		};
+		EBE8FA10232C3AEA00827898 /* UserCell */ = {
+			isa = PBXGroup;
+			children = (
+				EBE8FA11232C3B1300827898 /* UserCell.swift */,
+				EBE8FA12232C3B1300827898 /* UserCell.xib */,
+			);
+			path = UserCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,6 +187,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBE8FA14232C3B1300827898 /* UserCell.xib in Resources */,
 				EB5ADCE2232BF89500FA8DC4 /* LaunchScreen.storyboard in Resources */,
 				EB5ADCDF232BF89500FA8DC4 /* Assets.xcassets in Resources */,
 				EBE46D6A232BF99D00FBD945 /* UsersListViewController.xib in Resources */,
@@ -230,6 +245,7 @@
 			files = (
 				EB5ADCD8232BF89400FA8DC4 /* AppDelegate.swift in Sources */,
 				EBE46D6C232BFB2F00FBD945 /* UsersListViewModel.swift in Sources */,
+				EBE8FA13232C3B1300827898 /* UserCell.swift in Sources */,
 				EBE46D6F232BFC7500FBD945 /* UsersAPIRequest.swift in Sources */,
 				EBE46D69232BF99D00FBD945 /* UsersListViewController.swift in Sources */,
 				EBE46D71232BFFBE00FBD945 /* UsersDataManager.swift in Sources */,

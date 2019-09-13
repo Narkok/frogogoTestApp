@@ -8,6 +8,7 @@
 
 import RxSwift
 import RxCocoa
+import RxDataSources
 import Moya
 
 
@@ -29,27 +30,28 @@ class UsersDataManager {
                     self?.result.accept(.next(data))
                 }
                 catch {
-                    self?.result.accept(.error(UsersDataManagerError(text: "Ошибка при парсинге данных")))
+                    let error = UsersDataManagerError(text: "Ошибка при парсинге данных")
+                    self?.result.accept(.error(error))
                 }
                 
             case .failure(_):
-                self?.result.accept(.error(UsersDataManagerError(text: "Ошибка при запросе данных")))
-
+                let error = UsersDataManagerError(text: "Ошибка при запросе данных")
+                self?.result.accept(.error(error))
             }
         })
     }
-    
-    struct UsersDataManagerError: Error {
-        let text: String
-    }
-    
 }
 
+
+struct UsersDataManagerError: Error {
+    let text: String
+}
 
 
 struct RequestData: Codable {
     
     struct User: Codable {
+        
         let id: Int
         let firstName: String
         let lastName: String
