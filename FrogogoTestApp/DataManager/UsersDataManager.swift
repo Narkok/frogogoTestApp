@@ -8,13 +8,12 @@
 
 import RxSwift
 import RxCocoa
-import RxDataSources
 import Moya
 
 
 class UsersDataManager {
     
-    let result = PublishRelay<Event<[RequestData.User]>>()
+    let result = PublishRelay<Event<[UserInfo]>>()
     
     static private let provider = MoyaProvider<UsersAPIRequest>()
     
@@ -26,7 +25,7 @@ class UsersDataManager {
                 
             case .success(let response):
                 do {
-                    let data = try JSONDecoder().decode([RequestData.User].self, from: response.data)
+                    let data = try JSONDecoder().decode([UserInfo].self, from: response.data)
                     self?.result.accept(.next(data))
                 }
                 catch {
@@ -48,23 +47,20 @@ struct UsersDataManagerError: Error {
 }
 
 
-struct RequestData: Codable {
+struct UserInfo: Codable {
+        
+    let id: Int
+    let firstName: String
+    let lastName: String
+    let email: String
+    let url: String
     
-    struct User: Codable {
-        
-        let id: Int
-        let firstName: String
-        let lastName: String
-        let email: String
-        let url: String
-        
-        enum CodingKeys: String, CodingKey {
-            case id = "id"
-            case firstName = "first_name"
-            case lastName = "last_name"
-            case email = "email"
-            case url = "url"
-        }
-        
+    enum CodingKeys: String, CodingKey {
+        case id = "id"
+        case firstName = "first_name"
+        case lastName = "last_name"
+        case email = "email"
+        case url = "url"
     }
+    
 }

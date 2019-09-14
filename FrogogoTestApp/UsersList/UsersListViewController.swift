@@ -7,9 +7,7 @@
 //
 
 import UIKit
-import RxCocoa
 import RxSwift
-import RxDataSources
 
 class UsersListViewController: UIViewController {
     
@@ -17,53 +15,43 @@ class UsersListViewController: UIViewController {
     let dispodeBag = DisposeBag()
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Пользователи"
+        tableView.alpha = 0
         
+        // Загрузка данных в tableView
         viewModel.users.drive(tableView.rx.items) { tableView, row, item in
-            let cell = tableView.cell(forType: UserCell.self)
+            let cell = tableView.getCell(forClass: UserCell.self)
             cell.nameLabel.text = "\(item.firstName) \(item.lastName)"
             cell.emailLabel.text = item.email
             return cell
         }.disposed(by: dispodeBag)
+    
+        // Анимация loadingIndicator
+        viewModel.isLoading
+            .drive(loadingIndicator.rx.isAnimating)
+            .disposed(by: dispodeBag)
         
+        // Показать tableView
+        viewModel.loadIsFinished.drive(onNext: {
+            UIView.animate(withDuration: 0.5, animations: { [weak self] in
+                self?.tableView.alpha = 1
+            })
+        }).disposed(by: dispodeBag)
+        
+        // Вывод ошибки
         viewModel.error.drive(onNext: { error in
             print(error)
         }).disposed(by: dispodeBag)
         
-        tableView.rx.modelSelected(RequestData.User.self).subscribe(onNext: { user in
-            print(user)
-        }).disposed(by: dispodeBag)
+        // Отправка выбранного пользователя в viewModel
+        tableView.rx.modelSelected(UserInfo.self)
+            .subscribe(onNext: { [weak self] user in
+                print(user)
+            }).disposed(by: dispodeBag)
         
-    }
-}
-
-
-
-public extension UITableView {
-    
-    func cell<T: UITableViewCell>(forClass cellClass: T.Type, reuseIdentifierTag: String? = nil) -> T {
-        let className = String(describing: cellClass)
-        let reuseIdentifier = className + (reuseIdentifierTag ?? "")
-        var isRegistered = false
-        while true {
-            if let cell = self.dequeueReusableCell(withIdentifier: reuseIdentifier) as? T {
-                cell.selectionStyle = .none
-                return cell
-            }
-            guard !isRegistered else { return T() }
-            let bundle = Bundle(for: cellClass)
-            if bundle.path(forResource: className, ofType: "nib") != nil {
-                register(UINib(nibName: className, bundle: bundle), forCellReuseIdentifier: reuseIdentifier)
-            } else {
-                register(cellClass, forCellReuseIdentifier: reuseIdentifier)
-            }
-            isRegistered = true
-        }
-    }
-    
-    func cell<T: UITableViewCell>(forType cellType: T.Type, reuseIdentifierTag: String? = nil) -> T {
-        return cell(forClass: cellType, reuseIdentifierTag: reuseIdentifierTag)
     }
 }

@@ -18,7 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let usersListController = UsersListViewController()
         let navController = UINavigationController(rootViewController: usersListController)
         navController.navigationBar.prefersLargeTitles = true
-        usersListController.title = "Title"
         window!.rootViewController = navController
         window!.makeKeyAndVisible()
         return true

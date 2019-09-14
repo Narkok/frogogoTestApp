@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0BBCDCDFC487EEC929E42633 /* Pods_FrogogoTestApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86C90E1474954817BA7B2489 /* Pods_FrogogoTestApp.framework */; };
+		B88EF1F2232D25F6006E3D67 /* UITableView+GetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88EF1F1232D25F6006E3D67 /* UITableView+GetCell.swift */; };
 		EB5ADCD8232BF89400FA8DC4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5ADCD7232BF89400FA8DC4 /* AppDelegate.swift */; };
 		EB5ADCDF232BF89500FA8DC4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB5ADCDE232BF89500FA8DC4 /* Assets.xcassets */; };
 		EB5ADCE2232BF89500FA8DC4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB5ADCE0232BF89500FA8DC4 /* LaunchScreen.storyboard */; };
@@ -24,6 +25,7 @@
 		3A830189389AEA64EB457F30 /* Pods-FrogogoTestApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FrogogoTestApp.debug.xcconfig"; path = "Target Support Files/Pods-FrogogoTestApp/Pods-FrogogoTestApp.debug.xcconfig"; sourceTree = "<group>"; };
 		86C90E1474954817BA7B2489 /* Pods_FrogogoTestApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FrogogoTestApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FDC0C1E3370E23FA00DBD79 /* Pods-FrogogoTestApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FrogogoTestApp.release.xcconfig"; path = "Target Support Files/Pods-FrogogoTestApp/Pods-FrogogoTestApp.release.xcconfig"; sourceTree = "<group>"; };
+		B88EF1F1232D25F6006E3D67 /* UITableView+GetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+GetCell.swift"; sourceTree = "<group>"; };
 		EB5ADCD4232BF89400FA8DC4 /* FrogogoTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FrogogoTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB5ADCD7232BF89400FA8DC4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB5ADCDE232BF89500FA8DC4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				EB5ADCD7232BF89400FA8DC4 /* AppDelegate.swift */,
+				B88EF1F1232D25F6006E3D67 /* UITableView+GetCell.swift */,
 				EBE46D6D232BFC5700FBD945 /* DataManager */,
 				EBE46D66232BF96100FBD945 /* UsersList */,
 				EB5ADCDE232BF89500FA8DC4 /* Assets.xcassets */,
@@ -246,6 +249,7 @@
 				EB5ADCD8232BF89400FA8DC4 /* AppDelegate.swift in Sources */,
 				EBE46D6C232BFB2F00FBD945 /* UsersListViewModel.swift in Sources */,
 				EBE8FA13232C3B1300827898 /* UserCell.swift in Sources */,
+				B88EF1F2232D25F6006E3D67 /* UITableView+GetCell.swift in Sources */,
 				EBE46D6F232BFC7500FBD945 /* UsersAPIRequest.swift in Sources */,
 				EBE46D69232BF99D00FBD945 /* UsersListViewController.swift in Sources */,
 				EBE46D71232BFFBE00FBD945 /* UsersDataManager.swift in Sources */,

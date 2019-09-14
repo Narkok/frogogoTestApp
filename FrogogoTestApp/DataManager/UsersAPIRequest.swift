@@ -7,12 +7,10 @@
 //
 
 import Moya
-import Alamofire
 
 fileprivate let testBaseURL = URL(string: "https://frogogo-test.herokuapp.com")!
 
 enum UsersAPIRequest {
-    
     case get
 }
 
