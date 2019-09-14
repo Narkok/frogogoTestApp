@@ -12,18 +12,18 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserCell" customModule="FrogogoTestApp" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="98" id="KGk-i7-Jjw" customClass="UserCell" customModule="FrogogoTestApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="327" height="98"/>
+        <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="105" id="KGk-i7-Jjw" customClass="UserCell" customModule="FrogogoTestApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="327" height="105"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="289" height="97.5"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="289" height="104.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g2B-BM-jgV">
-                        <rect key="frame" x="0.0" y="0.0" width="289" height="96"/>
+                        <rect key="frame" x="0.0" y="0.0" width="289" height="104.5"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zsg-1a-Uay">
-                                <rect key="frame" x="16" y="12" width="72" height="72"/>
+                                <rect key="frame" x="16" y="16.5" width="72" height="72"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="72" id="IBP-Jd-3ak"/>
@@ -42,7 +42,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXH-ap-nEW">
-                                <rect key="frame" x="100" y="55" width="189" height="17"/>
+                                <rect key="frame" x="100" y="63.5" width="189" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -58,7 +58,7 @@
                             <constraint firstItem="wyw-bf-6DT" firstAttribute="top" secondItem="g2B-BM-jgV" secondAttribute="top" constant="24" id="Llq-tu-KW8"/>
                             <constraint firstItem="wyw-bf-6DT" firstAttribute="leading" secondItem="zsg-1a-Uay" secondAttribute="trailing" constant="12" id="VKi-Jv-PET"/>
                             <constraint firstAttribute="trailing" secondItem="wyw-bf-6DT" secondAttribute="trailing" id="og1-WG-jRw"/>
-                            <constraint firstAttribute="height" constant="96" id="r3P-yj-vL8"/>
+                            <constraint firstAttribute="height" priority="999" constant="96" id="r3P-yj-vL8"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -76,7 +76,7 @@
                 <outlet property="emailLabel" destination="iXH-ap-nEW" id="hai-h1-h9W"/>
                 <outlet property="nameLabel" destination="wyw-bf-6DT" id="iGJ-Xi-kCC"/>
             </connections>
-            <point key="canvasLocation" x="141.30434782608697" y="170.75892857142856"/>
+            <point key="canvasLocation" x="141.30434782608697" y="173.10267857142856"/>
         </tableViewCell>
     </objects>
 </document>
