@@ -24,7 +24,12 @@ class UserDetailsViewModel {
     var blockScreen: Driver<Void>?
     var buttonIsActive: Driver<Bool>?
     
-    init() {
+    enum RequestType {
+        case post
+        case patch
+    }
+    
+    init(for requestType: RequestType, userID: Int?) {
         // Все данные валидны
         let isValid = Observable.combineLatest(firstName, lastName, email)
             .filter { $0.0.isValid && $0.1.isValid && $0.2.isValid }
@@ -43,14 +48,16 @@ class UserDetailsViewModel {
         
         // Результат отправки POST запроса с данными нового пользователя
         let requestResult = createButton.withLatestFrom(isValid)
-            .map { UserInfo(id: 0,
+            .map { UserInfo(id: userID ?? 0,
                             firstName: $0.firstName,
                             lastName: $0.lastName,
                             email: $0.email,
                             avatarUrl: nil) }
             .flatMapLatest { [weak self] data -> Observable<Event<[UserInfo]>> in
                 guard let self = self else { return .error(UsersDataManagerError(text: "Ошибка при отправке данных")) }
-                self.dataManager.postData(data: data)
+                if requestType == .post  { self.dataManager.post(data) }
+                if requestType == .patch { self.dataManager.patch(data) }
+                
                 return self.dataManager.result.asObservable()
             }.share(replay: 1, scope: .forever)
             .asDriver(onErrorJustReturn: .error(UsersDataManagerError(text: "Ошибка")))

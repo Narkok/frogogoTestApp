@@ -34,21 +34,21 @@ class UsersDataManager {
     }
     
     /// Отправка POST запроса
-    func postData(data: UserInfo) {
+    func post(_ data: UserInfo) {
         UsersDataManager.provider.request(.post(data: data), completion: { [weak self] result in
             switch result {
             case .success: self?.result.accept(.completed)
-            case .failure: self?.result.accept(.error(UsersDataManagerError(text: "Ошибка при оправке данных")))
+            case .failure: self?.result.accept(.error(UsersDataManagerError(text: "Ошибка при оправке запроса")))
             }
         })
     }
     
     /// Отправка PATCH запроса
-    func patch(data: UserInfo) {
+    func patch(_ data: UserInfo) {
         UsersDataManager.provider.request(.patch(data: data), completion: { [weak self] result in
             switch result {
             case .success: self?.result.accept(.completed)
-            case .failure: self?.result.accept(.error(UsersDataManagerError(text: "Ошибка при оправке данных")))
+            case .failure: self?.result.accept(.error(UsersDataManagerError(text: "Ошибка при оправке запроса")))
             }
         })
     }

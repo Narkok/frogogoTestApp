@@ -32,7 +32,9 @@ extension UsersAPIRequest: TargetType {
     var path: String {
         switch self {
         case .get, .post: return "users.json"
-        case .patch(let data): return "users/\(data.id).json"
+        case .patch(let data):
+            print("users/\(data.id).json")
+            return "users/\(data.id).json"
         }
         
     }

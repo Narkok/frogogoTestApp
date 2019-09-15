@@ -12,9 +12,10 @@ import RxCocoa
 
 class UserDetailsViewController: UIViewController {
 
-    let viewModel = UserDetailsViewModel()
-    let disposeBag = DisposeBag()
+    var viewModel: UserDetailsViewModel?
     var user: UserInfo?
+    
+    let disposeBag = DisposeBag()
     
     @IBOutlet weak var firstNameInputView: InputView!
     @IBOutlet weak var lastNameInputView: InputView!
@@ -26,6 +27,8 @@ class UserDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = user == nil ? "Новый пользователь" : "\(user!.firstName) \(user!.lastName)"
+        viewModel = UserDetailsViewModel(for: user == nil ? .post : .patch, userID: user?.id)
+        guard let viewModel = viewModel else { return } 
         
         // Кнопка 'создать' в навбаре
         let createButton = UIBarButtonItem(title: "Сохранить", style: .plain, target: nil, action: nil)
