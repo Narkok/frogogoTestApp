@@ -1,5 +1,5 @@
 //
-//  CreateUserViewController.swift
+//  UserDetailsViewController.swift
 //  FrogogoTestApp
 //
 //  Created by Narek Stepanyan on 15/09/2019.
@@ -10,10 +10,11 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class CreateUserViewController: UIViewController {
+class UserDetailsViewController: UIViewController {
 
-    let viewModel = CreateUserViewModel()
+    let viewModel = UserDetailsViewModel()
     let disposeBag = DisposeBag()
+    var user: UserInfo?
     
     @IBOutlet weak var firstNameInputView: InputView!
     @IBOutlet weak var lastNameInputView: InputView!
@@ -24,28 +25,28 @@ class CreateUserViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Новый пользователь"
+        title = user == nil ? "Новый пользователь" : "\(user!.firstName) \(user!.lastName)"
         
         // Кнопка 'создать' в навбаре
-        let createButton = UIBarButtonItem(title: "Создать", style: .plain, target: nil, action: nil)
+        let createButton = UIBarButtonItem(title: "Сохранить", style: .plain, target: nil, action: nil)
         navigationItem.rightBarButtonItem = createButton
         createButton.rx.tap.bind(to: viewModel.createButton).disposed(by: disposeBag)
         
         // Настройка полей ввода и отравка результатов в viewModel
-        firstNameInputView.setup(withTitle: "Имя", inputType: .name)
+        firstNameInputView.setup(withTitle: "Имя", text: user?.firstName ?? "", inputType: .name)
             .bind(to: viewModel.firstName)
             .disposed(by: disposeBag)
         
-        lastNameInputView.setup(withTitle: "Фамилия", inputType: .name)
+        lastNameInputView.setup(withTitle: "Фамилия", text: user?.lastName ?? "", inputType: .name)
             .bind(to: viewModel.lastName)
             .disposed(by: disposeBag)
         
-        emailInputView.setup(withTitle: "Email", inputType: .email)
+        emailInputView.setup(withTitle: "Email", text: user?.email ?? "", inputType: .email)
             .bind(to: viewModel.email)
             .disposed(by: disposeBag)
         
         // Вернуться на предыдущий экран
-        viewModel.requestResult.drive(onNext:{ [weak self] _ in
+        viewModel.requestResult?.drive(onNext:{ [weak self] _ in
             self?.navigationController?.popViewController(animated: true)
         }).disposed(by: disposeBag)
         

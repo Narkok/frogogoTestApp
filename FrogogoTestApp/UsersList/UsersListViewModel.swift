@@ -10,7 +10,7 @@ import RxCocoa
 
 class UsersListViewModel {
     
-    let dataManager = UsersDataManager()
+    private let dataManager = UsersDataManager()
     
     // Выходы в контроллер
     let users: Driver<[UserInfo]>
@@ -23,14 +23,17 @@ class UsersListViewModel {
         let data = dataManager.result
             .map { $0.element ?? [] }
         
+        
         // Состояние загрузки
         let isLoading = dataManager.result
             .map { _ in false }
             .startWith(true)
         
+        
         // Загрузка данных завершена
         let loadIsFinished = dataManager.result
             .map { _ in () }
+        
         
         // Текст ошибки
         let errorText = dataManager.result

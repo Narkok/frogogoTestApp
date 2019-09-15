@@ -22,15 +22,18 @@ class UsersListViewController: UIViewController {
         title = "Пользователи"
         tableView.alpha = 0
         
+        
         // Кнопка 'добавить' в навбаре
         let addButton = UIBarButtonItem(image: UIImage(named: "plus"), style: .plain, target: nil, action: nil)
         navigationItem.rightBarButtonItem = addButton
         
+        
         // Переход на экран создания пользователя
         addButton.rx.tap.subscribe(onNext:{ [weak self] in
-            let createUserViewControler = CreateUserViewController()
+            let createUserViewControler = UserDetailsViewController()
             self?.navigationController?.pushViewController(createUserViewControler, animated: true)
         }).disposed(by: disposeBag)
+        
         
         // Загрузка данных в tableView
         viewModel.users.drive(tableView.rx.items) { tableView, row, user in
@@ -39,10 +42,12 @@ class UsersListViewController: UIViewController {
             return cell
         }.disposed(by: disposeBag)
     
+        
         // Анимация loadingIndicator
         viewModel.isLoading
             .drive(loadingIndicator.rx.isAnimating)
             .disposed(by: disposeBag)
+        
         
         // Показать tableView
         viewModel.loadIsFinished.drive(onNext: {
@@ -51,16 +56,20 @@ class UsersListViewController: UIViewController {
             })
         }).disposed(by: disposeBag)
         
+        
         // Вывод ошибки
         viewModel.error.drive(onNext: { error in
             print(error)
         }).disposed(by: disposeBag)
         
         
-//        tableView.rx.modelSelected(UserInfo.self)
-//            .subscribe(onNext: { [weak self] user in
-//                print(user)
-//            }).disposed(by: dispodeBag)
+        // Переход на экран редактирования пользователя
+        tableView.rx.modelSelected(UserInfo.self)
+            .subscribe(onNext: { [weak self] user in
+                let createUserViewControler = UserDetailsViewController()
+                createUserViewControler.user = user
+                self?.navigationController?.pushViewController(createUserViewControler, animated: true)
+            }).disposed(by: disposeBag)
         
     }
 }

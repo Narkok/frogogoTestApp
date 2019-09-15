@@ -17,47 +17,38 @@ class UsersDataManager {
     
     static private let provider = MoyaProvider<UsersAPIRequest>()
     
+    
+    /// Отправка GET запроса
     func getData() {
         UsersDataManager.provider.request(.get, completion: { [weak self] result in
-            
             switch result {
-                
             case .success(let response):
                 do {
                     let data = try JSONDecoder().decode([UserInfo].self, from: response.data)
                     self?.result.accept(.next(data))
                 }
-                catch {
-                    let error = UsersDataManagerError(text: "Ошибка при парсинге данных")
-                    self?.result.accept(.error(error))
-                }
-                
-            case .failure(_):
-                let error = UsersDataManagerError(text: "Ошибка при запросе данных")
-                self?.result.accept(.error(error))
+                catch { self?.result.accept(.error(UsersDataManagerError(text: "Ошибка при парсинге данных"))) }
+            case .failure(_): self?.result.accept(.error(UsersDataManagerError(text: "Ошибка при запросе данных")))
             }
         })
     }
     
-    
+    /// Отправка POST запроса
     func postData(data: UserInfo) {
         UsersDataManager.provider.request(.post(data: data), completion: { [weak self] result in
-            
             switch result {
-                
-            case .success(let response):
-                do {
-                    let data = try JSONDecoder().decode(UserInfo.self, from: response.data)
-                    self?.result.accept(.completed)
-                }
-                catch {
-                    let error = UsersDataManagerError(text: "Ошибка при парсинге данных")
-                    self?.result.accept(.error(error))
-                }
-                
-            case .failure(_):
-                let error = UsersDataManagerError(text: "Ошибка при оправке данных")
-                self?.result.accept(.error(error))
+            case .success: self?.result.accept(.completed)
+            case .failure: self?.result.accept(.error(UsersDataManagerError(text: "Ошибка при оправке данных")))
+            }
+        })
+    }
+    
+    /// Отправка PATCH запроса
+    func patch(data: UserInfo) {
+        UsersDataManager.provider.request(.patch(data: data), completion: { [weak self] result in
+            switch result {
+            case .success: self?.result.accept(.completed)
+            case .failure: self?.result.accept(.error(UsersDataManagerError(text: "Ошибка при оправке данных")))
             }
         })
     }
@@ -66,23 +57,4 @@ class UsersDataManager {
 
 struct UsersDataManagerError: Error {
     let text: String
-}
-
-
-struct UserInfo: Codable {
-        
-    let id: Int?
-    let firstName: String
-    let lastName: String
-    let email: String
-    let avatarUrl: String?
-    
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case firstName = "first_name"
-        case lastName = "last_name"
-        case email = "email"
-        case avatarUrl = "avatar_url"
-    }
-    
 }

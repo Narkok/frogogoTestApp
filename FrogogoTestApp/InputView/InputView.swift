@@ -45,7 +45,6 @@ class InputView: NibView {
             })
         }).disposed(by: disposeBag)
         
-        
         // Введенная в поле строка
         let inputText = textField.rx.controlEvent(.editingChanged)
             .withLatestFrom(textField.rx.text)
@@ -56,12 +55,12 @@ class InputView: NibView {
         let isInputValid = inputText
             .map { InputView.check($0, for: inputType) }
 
-
+        
         // Конец ввода строки в поле
         let onEditingDidEnd = textField.rx.controlEvent(.editingDidEnd)
             .withLatestFrom(isInputValid)
-
-
+        
+        
         // Анимация отмены выделения поля
         // Покрасить линию в цвет в зависимости от валидности введенных данных
         onEditingDidEnd.subscribe(onNext: { [weak self] isValid in
@@ -75,7 +74,12 @@ class InputView: NibView {
             })
         }).disposed(by: disposeBag)
         
-        return Observable.combineLatest(isInputValid, inputText).map { (isValid: $0, string: $1) }
+        
+        // Результат Observable из строки и её валидности
+        let result = Observable.combineLatest(isInputValid, inputText)
+            .map { (isValid: $0, string: $1) }
+        
+        return result
     }
     
     

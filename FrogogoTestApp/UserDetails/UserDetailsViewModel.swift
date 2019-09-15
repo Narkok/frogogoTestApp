@@ -1,5 +1,5 @@
 //
-//  CreateUserViewModel.swift
+//  UserDetailsViewModel.swift
 //  FrogogoTestApp
 //
 //  Created by Narek Stepanyan on 15/09/2019.
@@ -9,9 +9,9 @@
 import RxCocoa
 import RxSwift
 
-class CreateUserViewModel {
+class UserDetailsViewModel {
     
-    let dataManager = UsersDataManager()
+    private let dataManager = UsersDataManager()
     
     /// Входы из контроллера
     let createButton = PublishRelay<Void>()
@@ -34,7 +34,6 @@ class CreateUserViewModel {
         let buttonIsActive = Observable.combineLatest(firstName, lastName, email)
             .map { $0.0.isValid && $0.1.isValid && $0.2.isValid }
             .asDriver(onErrorJustReturn: true)
-            .startWith(false)
         
         // Блокировка экрана
         let blockScreen = createButton
