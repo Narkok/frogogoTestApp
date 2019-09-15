@@ -10,6 +10,12 @@
 		0C050A16C96BD0607B5D8792 /* Pods_FrogogoTestApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68F7BA57FBC60D3EA13E1C84 /* Pods_FrogogoTestApp.framework */; };
 		B88EF1F2232D25F6006E3D67 /* UITableView+GetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88EF1F1232D25F6006E3D67 /* UITableView+GetCell.swift */; };
 		EB1F72A9232E251900E3F220 /* UIColor+ColorBy.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1F72A8232E251900E3F220 /* UIColor+ColorBy.swift */; };
+		EB1F72AC232E6A2700E3F220 /* CreateUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1F72AB232E6A2700E3F220 /* CreateUserViewModel.swift */; };
+		EB1F72AF232E6A9600E3F220 /* CreateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1F72AD232E6A9600E3F220 /* CreateUserViewController.swift */; };
+		EB1F72B0232E6A9600E3F220 /* CreateUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB1F72AE232E6A9600E3F220 /* CreateUserViewController.xib */; };
+		EB1F72B3232E702B00E3F220 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1F72B2232E702B00E3F220 /* InputView.swift */; };
+		EB1F72B5232E709F00E3F220 /* NibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1F72B4232E709F00E3F220 /* NibView.swift */; };
+		EB1F72B7232E726700E3F220 /* InputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB1F72B6232E726700E3F220 /* InputView.xib */; };
 		EB5ADCD8232BF89400FA8DC4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5ADCD7232BF89400FA8DC4 /* AppDelegate.swift */; };
 		EB5ADCDF232BF89500FA8DC4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB5ADCDE232BF89500FA8DC4 /* Assets.xcassets */; };
 		EB5ADCE2232BF89500FA8DC4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB5ADCE0232BF89500FA8DC4 /* LaunchScreen.storyboard */; };
@@ -28,6 +34,12 @@
 		B88EF1F1232D25F6006E3D67 /* UITableView+GetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+GetCell.swift"; sourceTree = "<group>"; };
 		C286E869630D75AB1AA8A905 /* Pods-FrogogoTestApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FrogogoTestApp.debug.xcconfig"; path = "Target Support Files/Pods-FrogogoTestApp/Pods-FrogogoTestApp.debug.xcconfig"; sourceTree = "<group>"; };
 		EB1F72A8232E251900E3F220 /* UIColor+ColorBy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+ColorBy.swift"; sourceTree = "<group>"; };
+		EB1F72AB232E6A2700E3F220 /* CreateUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserViewModel.swift; sourceTree = "<group>"; };
+		EB1F72AD232E6A9600E3F220 /* CreateUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserViewController.swift; sourceTree = "<group>"; };
+		EB1F72AE232E6A9600E3F220 /* CreateUserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateUserViewController.xib; sourceTree = "<group>"; };
+		EB1F72B2232E702B00E3F220 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		EB1F72B4232E709F00E3F220 /* NibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibView.swift; sourceTree = "<group>"; };
+		EB1F72B6232E726700E3F220 /* InputView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputView.xib; sourceTree = "<group>"; };
 		EB5ADCD4232BF89400FA8DC4 /* FrogogoTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FrogogoTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB5ADCD7232BF89400FA8DC4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB5ADCDE232BF89500FA8DC4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -68,8 +80,29 @@
 			children = (
 				B88EF1F1232D25F6006E3D67 /* UITableView+GetCell.swift */,
 				EB1F72A8232E251900E3F220 /* UIColor+ColorBy.swift */,
+				EB1F72B4232E709F00E3F220 /* NibView.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EB1F72AA232E646A00E3F220 /* CreateUser */ = {
+			isa = PBXGroup;
+			children = (
+				EB1F72B1232E701000E3F220 /* InputView */,
+				EB1F72AB232E6A2700E3F220 /* CreateUserViewModel.swift */,
+				EB1F72AD232E6A9600E3F220 /* CreateUserViewController.swift */,
+				EB1F72AE232E6A9600E3F220 /* CreateUserViewController.xib */,
+			);
+			path = CreateUser;
+			sourceTree = "<group>";
+		};
+		EB1F72B1232E701000E3F220 /* InputView */ = {
+			isa = PBXGroup;
+			children = (
+				EB1F72B2232E702B00E3F220 /* InputView.swift */,
+				EB1F72B6232E726700E3F220 /* InputView.xib */,
+			);
+			path = InputView;
 			sourceTree = "<group>";
 		};
 		EB5ADCCB232BF89400FA8DC4 = {
@@ -97,6 +130,7 @@
 				EB1F72A7232E22C900E3F220 /* Extensions */,
 				EBE46D6D232BFC5700FBD945 /* DataManager */,
 				EBE46D66232BF96100FBD945 /* UsersList */,
+				EB1F72AA232E646A00E3F220 /* CreateUser */,
 				EB5ADCDE232BF89500FA8DC4 /* Assets.xcassets */,
 				EB5ADCE0232BF89500FA8DC4 /* LaunchScreen.storyboard */,
 				EB5ADCE3232BF89500FA8DC4 /* Info.plist */,
@@ -205,6 +239,8 @@
 				EB5ADCE2232BF89500FA8DC4 /* LaunchScreen.storyboard in Resources */,
 				EB5ADCDF232BF89500FA8DC4 /* Assets.xcassets in Resources */,
 				EBE46D6A232BF99D00FBD945 /* UsersListViewController.xib in Resources */,
+				EB1F72B0232E6A9600E3F220 /* CreateUserViewController.xib in Resources */,
+				EB1F72B7232E726700E3F220 /* InputView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,11 +294,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB1F72A9232E251900E3F220 /* UIColor+ColorBy.swift in Sources */,
+				EB1F72B5232E709F00E3F220 /* NibView.swift in Sources */,
+				EB1F72AF232E6A9600E3F220 /* CreateUserViewController.swift in Sources */,
 				EB5ADCD8232BF89400FA8DC4 /* AppDelegate.swift in Sources */,
+				EB1F72AC232E6A2700E3F220 /* CreateUserViewModel.swift in Sources */,
 				EBE46D6C232BFB2F00FBD945 /* UsersListViewModel.swift in Sources */,
 				EBE8FA13232C3B1300827898 /* UserCell.swift in Sources */,
 				B88EF1F2232D25F6006E3D67 /* UITableView+GetCell.swift in Sources */,
 				EBE46D6F232BFC7500FBD945 /* UsersAPIRequest.swift in Sources */,
+				EB1F72B3232E702B00E3F220 /* InputView.swift in Sources */,
 				EBE46D69232BF99D00FBD945 /* UsersListViewController.swift in Sources */,
 				EBE46D71232BFFBE00FBD945 /* UsersDataManager.swift in Sources */,
 			);

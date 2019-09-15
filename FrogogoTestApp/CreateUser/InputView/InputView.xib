@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InputView" customModule="FrogogoTestApp" customModuleProvider="target">
+            <connections>
+                <outlet property="bottomLine" destination="7VM-TI-tXo" id="Pf9-fK-SyM"/>
+                <outlet property="bottomLineHeightConstraint" destination="C5f-bV-dRx" id="kN7-gA-txU"/>
+                <outlet property="textField" destination="vL9-QF-7qM" id="yXA-2w-2mw"/>
+                <outlet property="titleLabel" destination="hcx-ES-EZI" id="rvY-vh-2ou"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="ODd-Iz-RMA">
+            <rect key="frame" x="0.0" y="0.0" width="373" height="68"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcx-ES-EZI">
+                    <rect key="frame" x="12" y="0.0" width="34" height="16"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                    <color key="textColor" red="0.53086752334983656" green="0.54306644562118578" blue="0.57966321243523322" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7VM-TI-tXo">
+                    <rect key="frame" x="12" y="46" width="349" height="1"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="C5f-bV-dRx"/>
+                    </constraints>
+                </view>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vL9-QF-7qM">
+                    <rect key="frame" x="12" y="0.0" width="349" height="62"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="62" id="WkD-NK-vIv"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                </textField>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="vL9-QF-7qM" firstAttribute="top" secondItem="ODd-Iz-RMA" secondAttribute="top" id="37v-aQ-x2r"/>
+                <constraint firstItem="hcx-ES-EZI" firstAttribute="top" secondItem="ODd-Iz-RMA" secondAttribute="top" id="Hl3-Qu-Qd7"/>
+                <constraint firstItem="7VM-TI-tXo" firstAttribute="top" secondItem="vL9-QF-7qM" secondAttribute="bottom" constant="-16" id="IL4-iE-OvT"/>
+                <constraint firstItem="7VM-TI-tXo" firstAttribute="leading" secondItem="ODd-Iz-RMA" secondAttribute="leading" constant="12" id="Ks0-gV-zC5"/>
+                <constraint firstItem="MM3-TI-A22" firstAttribute="trailing" secondItem="vL9-QF-7qM" secondAttribute="trailing" constant="12" id="PAK-GU-F2D"/>
+                <constraint firstItem="hcx-ES-EZI" firstAttribute="leading" secondItem="ODd-Iz-RMA" secondAttribute="leading" constant="12" id="jpO-lW-Xsh"/>
+                <constraint firstAttribute="trailing" secondItem="7VM-TI-tXo" secondAttribute="trailing" constant="12" id="t4c-EE-Dow"/>
+                <constraint firstItem="vL9-QF-7qM" firstAttribute="leading" secondItem="MM3-TI-A22" secondAttribute="leading" constant="12" id="uyu-z9-4fL"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="MM3-TI-A22"/>
+            <point key="canvasLocation" x="-370.28985507246381" y="46.205357142857139"/>
+        </view>
+    </objects>
+</document>

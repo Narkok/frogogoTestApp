@@ -18,12 +18,11 @@ class UserCell: UITableViewCell {
 
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         super.setHighlighted(highlighted, animated: animated)
-        backgroundColor = highlighted ? .red : .white
+        // Установка цвета фона выделенной ячейки
+        backgroundColor = .init(white: highlighted ? 0.9 : 1, alpha: 1)
     }
     
-    /**
-     Настройка ячейки для отображения пользователя
-     */
+    /// Настройка ячейки для отображения пользователя
     func setup(for user: UserInfo) {
         
         // Установка надписей
