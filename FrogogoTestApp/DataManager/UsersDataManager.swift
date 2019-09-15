@@ -18,7 +18,6 @@ class UsersDataManager {
     static private let provider = MoyaProvider<UsersAPIRequest>()
     
     func getData() {
-        
         UsersDataManager.provider.request(.get, completion: { [weak self] result in
             
             switch result {
@@ -39,6 +38,29 @@ class UsersDataManager {
             }
         })
     }
+    
+    
+    func postData(data: UserInfo) {
+        UsersDataManager.provider.request(.post(data: data), completion: { [weak self] result in
+            
+            switch result {
+                
+            case .success(let response):
+                do {
+                    let data = try JSONDecoder().decode(UserInfo.self, from: response.data)
+                    self?.result.accept(.completed)
+                }
+                catch {
+                    let error = UsersDataManagerError(text: "Ошибка при парсинге данных")
+                    self?.result.accept(.error(error))
+                }
+                
+            case .failure(_):
+                let error = UsersDataManagerError(text: "Ошибка при оправке данных")
+                self?.result.accept(.error(error))
+            }
+        })
+    }
 }
 
 
@@ -49,7 +71,7 @@ struct UsersDataManagerError: Error {
 
 struct UserInfo: Codable {
         
-    let id: Int
+    let id: Int?
     let firstName: String
     let lastName: String
     let email: String

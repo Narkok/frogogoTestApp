@@ -6,7 +6,6 @@
 //  Copyright © 2019 Narek Stepanyan. All rights reserved.
 //
 
-import Foundation
 import RxCocoa
 
 class UsersListViewModel {

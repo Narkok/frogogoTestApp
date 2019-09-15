@@ -24,7 +24,7 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zsg-1a-Uay">
                                 <rect key="frame" x="16" y="16.5" width="72" height="72"/>
-                                <color key="backgroundColor" red="1" green="0.37537321709999999" blue="0.44679519280000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="72" id="IBP-Jd-3ak"/>
                                     <constraint firstAttribute="height" constant="72" id="wmM-BA-r8o"/>

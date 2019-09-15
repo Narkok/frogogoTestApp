@@ -26,13 +26,24 @@ class CreateUserViewController: UIViewController {
         // Кнопка 'создать' в навбаре
         let createButton = UIBarButtonItem(title: "Создать", style: .plain, target: nil, action: nil)
         navigationItem.rightBarButtonItem = createButton
+        createButton.rx.tap.bind(to: viewModel.createButton).disposed(by: disposeBag)
         
-        let firstNameIsValid = firstNameInputView.setup(withTitle: "Имя", inputType: .name)
-        let lastNameIsValid = lastNameInputView.setup(withTitle: "Фамилия", inputType: .name)
-        let emailIsValid = emailInputView.setup(withTitle: "Email", inputType: .email)
+        // Настройка полей ввода и отравка результатов в viewModel
+        firstNameInputView.setup(withTitle: "Имя", inputType: .name)
+            .bind(to: viewModel.firstName)
+            .disposed(by: disposeBag)
         
+        lastNameInputView.setup(withTitle: "Фамилия", inputType: .name)
+            .bind(to: viewModel.lastName)
+            .disposed(by: disposeBag)
         
+        emailInputView.setup(withTitle: "Email", inputType: .email)
+            .bind(to: viewModel.email)
+            .disposed(by: disposeBag)
         
-    
+        // Вернуться на предыдущий экран
+        viewModel.requestResult.drive(onNext:{ [weak self] _ in
+            self?.navigationController?.popViewController(animated: true)
+        }).disposed(by: disposeBag)
     }
 }

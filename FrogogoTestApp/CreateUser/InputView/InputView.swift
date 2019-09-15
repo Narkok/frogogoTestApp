@@ -30,7 +30,7 @@ class InputView: NibView {
     
     /// Настройка поля ввода текста
     /// Возвращает Observable из строки и её валидности
-    func setup(withTitle title: String, text: String = "", inputType: Type) -> Observable<(Bool, String)> {
+    func setup(withTitle title: String, text: String = "", inputType: Type) -> Observable<(isValid: Bool, string: String)> {
         
         titleLabel.text = title
         textField.text = text
@@ -65,7 +65,6 @@ class InputView: NibView {
         // Анимация отмены выделения поля
         // Покрасить линию в цвет в зависимости от валидности введенных данных
         onEditingDidEnd.subscribe(onNext: { [weak self] isValid in
-            print(isValid)
             guard let self = self else { return }
             self.bottomLineHeightConstraint.constant = self.bottomLineDeselectedHeight
             UIView.animate(withDuration: 0.3, animations: { [weak self] in
@@ -76,7 +75,7 @@ class InputView: NibView {
             })
         }).disposed(by: disposeBag)
         
-        return Observable.combineLatest(isInputValid, inputText)
+        return Observable.combineLatest(isInputValid, inputText).map { (isValid: $0, string: $1) }
     }
     
     
