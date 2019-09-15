@@ -12,9 +12,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreateUserViewController" customModule="FrogogoTestApp" customModuleProvider="target">
             <connections>
+                <outlet property="descriptionLabel" destination="J1D-aJ-gDH" id="con-zE-0pp"/>
                 <outlet property="emailInputView" destination="iPM-V3-PCs" id="pi3-jG-Wd2"/>
                 <outlet property="firstNameInputView" destination="I2Q-CY-puo" id="nEx-Md-Dzs"/>
+                <outlet property="inputs" destination="SXO-xj-UGu" id="vGg-c0-0hO"/>
                 <outlet property="lastNameInputView" destination="9Yr-4I-dUD" id="eRm-BL-wGE"/>
+                <outlet property="loadingIndicator" destination="lUr-WN-F62" id="TRs-UT-Qt6"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -23,51 +26,79 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I2Q-CY-puo" customClass="InputView" customModule="FrogogoTestApp" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="64" width="375" height="60"/>
-                    <color key="backgroundColor" red="1" green="0.76597381109999996" blue="0.2101534451" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SXO-xj-UGu">
+                    <rect key="frame" x="0.0" y="64" width="375" height="210"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I2Q-CY-puo" customClass="InputView" customModule="FrogogoTestApp" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                            <color key="backgroundColor" red="1" green="0.76597381109999996" blue="0.2101534451" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="i6d-EP-40j"/>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="wop-qw-H80"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="title" value="Имя"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Yr-4I-dUD" customClass="InputView" customModule="FrogogoTestApp" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="75" width="375" height="60"/>
+                            <color key="backgroundColor" red="1" green="0.76597381109999996" blue="0.2101534451" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="8qG-jn-1if"/>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="Krs-Yo-gnm"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="title" value="Имя"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iPM-V3-PCs" customClass="InputView" customModule="FrogogoTestApp" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="150" width="375" height="60"/>
+                            <color key="backgroundColor" red="1" green="0.76597381109999996" blue="0.2101534451" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="f3S-oH-zmt"/>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="mFj-ZT-tFH"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="title" value="Имя"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="60" id="i6d-EP-40j"/>
+                        <constraint firstItem="I2Q-CY-puo" firstAttribute="leading" secondItem="SXO-xj-UGu" secondAttribute="leading" id="0wx-u3-Vb8"/>
+                        <constraint firstItem="9Yr-4I-dUD" firstAttribute="leading" secondItem="SXO-xj-UGu" secondAttribute="leading" id="8Rm-5N-g4L"/>
+                        <constraint firstItem="iPM-V3-PCs" firstAttribute="top" secondItem="9Yr-4I-dUD" secondAttribute="bottom" constant="15" id="PoL-lP-rEi"/>
+                        <constraint firstItem="9Yr-4I-dUD" firstAttribute="top" secondItem="I2Q-CY-puo" secondAttribute="bottom" constant="15" id="S4C-hz-gZS"/>
+                        <constraint firstItem="iPM-V3-PCs" firstAttribute="leading" secondItem="SXO-xj-UGu" secondAttribute="leading" id="b00-z7-xQp"/>
+                        <constraint firstItem="I2Q-CY-puo" firstAttribute="top" secondItem="SXO-xj-UGu" secondAttribute="top" id="g9k-hn-Squ"/>
+                        <constraint firstAttribute="trailing" secondItem="I2Q-CY-puo" secondAttribute="trailing" id="pxM-7b-g7M"/>
+                        <constraint firstAttribute="height" constant="210" id="qZG-uh-dnk"/>
+                        <constraint firstAttribute="trailing" secondItem="iPM-V3-PCs" secondAttribute="trailing" id="svs-mb-yd5"/>
+                        <constraint firstAttribute="trailing" secondItem="9Yr-4I-dUD" secondAttribute="trailing" id="yfK-4E-Nsy"/>
                     </constraints>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Имя"/>
-                    </userDefinedRuntimeAttributes>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Yr-4I-dUD" customClass="InputView" customModule="FrogogoTestApp" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="138" width="375" height="60"/>
-                    <color key="backgroundColor" red="1" green="0.76597381109999996" blue="0.2101534451" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="60" id="8qG-jn-1if"/>
-                    </constraints>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Имя"/>
-                    </userDefinedRuntimeAttributes>
-                </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iPM-V3-PCs" customClass="InputView" customModule="FrogogoTestApp" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="212" width="375" height="60"/>
-                    <color key="backgroundColor" red="1" green="0.76597381109999996" blue="0.2101534451" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="60" id="f3S-oH-zmt"/>
-                    </constraints>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Имя"/>
-                    </userDefinedRuntimeAttributes>
-                </view>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="lUr-WN-F62">
+                    <rect key="frame" x="177.66666666666666" y="396" width="20" height="20"/>
+                </activityIndicatorView>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Добавление пользователя" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J1D-aJ-gDH">
+                    <rect key="frame" x="81.666666666666686" y="424" width="212" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="9Yr-4I-dUD" firstAttribute="top" secondItem="I2Q-CY-puo" secondAttribute="bottom" constant="14" id="38d-se-KVT"/>
-                <constraint firstItem="iPM-V3-PCs" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="9PK-V0-Ewh"/>
-                <constraint firstItem="I2Q-CY-puo" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="FgM-FU-Ljm"/>
-                <constraint firstItem="9Yr-4I-dUD" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="MQR-eK-552"/>
-                <constraint firstItem="I2Q-CY-puo" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="W86-BZ-E5O"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="I2Q-CY-puo" secondAttribute="trailing" id="er0-ev-QTH"/>
-                <constraint firstItem="iPM-V3-PCs" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="iss-wI-anJ"/>
-                <constraint firstItem="iPM-V3-PCs" firstAttribute="top" secondItem="9Yr-4I-dUD" secondAttribute="bottom" constant="14" id="j3h-bU-o6M"/>
-                <constraint firstItem="9Yr-4I-dUD" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="vsz-c7-zy7"/>
+                <constraint firstItem="J1D-aJ-gDH" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="3ov-ao-HzK"/>
+                <constraint firstItem="lUr-WN-F62" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="EcT-gy-Swr"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="SXO-xj-UGu" secondAttribute="trailing" id="HHH-6f-Nsb"/>
+                <constraint firstItem="J1D-aJ-gDH" firstAttribute="top" secondItem="lUr-WN-F62" secondAttribute="bottom" constant="8" id="VFW-wo-fPH"/>
+                <constraint firstItem="SXO-xj-UGu" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="X3v-ZZ-P5S"/>
+                <constraint firstItem="lUr-WN-F62" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="ZOW-Iy-gT4"/>
+                <constraint firstItem="SXO-xj-UGu" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="lJh-iF-xIg"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="47.826086956521742" y="35.491071428571423"/>
+            <point key="canvasLocation" x="47.200000000000003" y="35.467980295566505"/>
         </view>
     </objects>
 </document>

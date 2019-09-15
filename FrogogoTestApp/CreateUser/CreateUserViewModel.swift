@@ -19,7 +19,10 @@ class CreateUserViewModel {
     let lastName = PublishRelay<(isValid: Bool, string: String)>()
     let email = PublishRelay<(isValid: Bool, string: String)>()
     
-    var requestResult: Driver<Event<[UserInfo]>>!
+    /// Выходы в контроллер
+    var requestResult: Driver<Event<[UserInfo]>>?
+    var blockScreen: Driver<Void>?
+    var buttonIsActive: Driver<Bool>?
     
     init() {
         // Все данные валидны
@@ -27,6 +30,19 @@ class CreateUserViewModel {
             .filter { $0.0.isValid && $0.1.isValid && $0.2.isValid }
             .map { (firstName: $0.0.string, lastName: $0.1.string, email: $0.2.string ) }
         
+        // Активация кнопки 'Создать'
+        let buttonIsActive = Observable.combineLatest(firstName, lastName, email)
+            .map { $0.0.isValid && $0.1.isValid && $0.2.isValid }
+            .asDriver(onErrorJustReturn: true)
+            .startWith(false)
+        
+        // Блокировка экрана
+        let blockScreen = createButton
+            .withLatestFrom(isValid)
+            .map { _ in () }
+            .asDriver(onErrorJustReturn: ())
+        
+        // Результат отправки POST запроса с данными нового пользователя
         let requestResult = createButton.withLatestFrom(isValid)
             .map { UserInfo(id: 0,
                             firstName: $0.firstName,
@@ -41,5 +57,7 @@ class CreateUserViewModel {
             .asDriver(onErrorJustReturn: .error(UsersDataManagerError(text: "Ошибка")))
         
         self.requestResult = requestResult
+        self.blockScreen = blockScreen
+        self.buttonIsActive = buttonIsActive
     }
 }

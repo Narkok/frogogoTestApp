@@ -18,6 +18,9 @@ class CreateUserViewController: UIViewController {
     @IBOutlet weak var firstNameInputView: InputView!
     @IBOutlet weak var lastNameInputView: InputView!
     @IBOutlet weak var emailInputView: InputView!
+    @IBOutlet weak var inputs: UIView!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +47,22 @@ class CreateUserViewController: UIViewController {
         // Вернуться на предыдущий экран
         viewModel.requestResult.drive(onNext:{ [weak self] _ in
             self?.navigationController?.popViewController(animated: true)
+        }).disposed(by: disposeBag)
+        
+        // Активация кнопки 'Создать'
+        viewModel.buttonIsActive?
+            .drive(createButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+        
+        // Блокировка кнопки во время отправки запроса
+        viewModel.blockScreen?.drive(onNext:{ [weak self, createButton] in
+            createButton.isEnabled = false
+            self?.view.endEditing(true)
+            self?.descriptionLabel.isHidden = false
+            self?.loadingIndicator.startAnimating()
+            UIView.animate(withDuration: 0.3, animations: { [weak self] in
+                self?.inputs.alpha = 0.4
+            })
         }).disposed(by: disposeBag)
     }
 }

@@ -88,7 +88,6 @@
 		EB1F72AA232E646A00E3F220 /* CreateUser */ = {
 			isa = PBXGroup;
 			children = (
-				EB1F72B1232E701000E3F220 /* InputView */,
 				EB1F72AB232E6A2700E3F220 /* CreateUserViewModel.swift */,
 				EB1F72AD232E6A9600E3F220 /* CreateUserViewController.swift */,
 				EB1F72AE232E6A9600E3F220 /* CreateUserViewController.xib */,
@@ -130,6 +129,7 @@
 				EB1F72A7232E22C900E3F220 /* Extensions */,
 				EBE46D6D232BFC5700FBD945 /* DataManager */,
 				EBE46D66232BF96100FBD945 /* UsersList */,
+				EB1F72B1232E701000E3F220 /* InputView */,
 				EB1F72AA232E646A00E3F220 /* CreateUser */,
 				EB5ADCDE232BF89500FA8DC4 /* Assets.xcassets */,
 				EB5ADCE0232BF89500FA8DC4 /* LaunchScreen.storyboard */,
