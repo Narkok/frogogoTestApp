@@ -30,10 +30,10 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7VM-TI-tXo">
-                    <rect key="frame" x="12" y="46" width="349" height="1"/>
+                    <rect key="frame" x="12" y="46" width="349" height="2"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="1" id="C5f-bV-dRx"/>
+                        <constraint firstAttribute="height" constant="2" id="C5f-bV-dRx"/>
                     </constraints>
                 </view>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vL9-QF-7qM">

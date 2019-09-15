@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 
+/// Загрузка view из xib-файла с таким же названием, что и у наследуемого класса
 open class NibView: UIView {
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -21,7 +22,6 @@ open class NibView: UIView {
         setup()
     }
     
-    /// Загрузка view из xib-файла с таким же названием, что и у наследуемого класса
     open func setup() {
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = UIColor.clear

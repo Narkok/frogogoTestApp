@@ -15,7 +15,7 @@ class CreateUserViewController: UIViewController {
     let viewModel = CreateUserViewModel()
     let disposeBag = DisposeBag()
     
-    @IBOutlet weak var firstInputView: InputView!
+    @IBOutlet weak var firstNameInputView: InputView!
     @IBOutlet weak var lastNameInputView: InputView!
     @IBOutlet weak var emailInputView: InputView!
     
@@ -27,10 +27,12 @@ class CreateUserViewController: UIViewController {
         let createButton = UIBarButtonItem(title: "Создать", style: .plain, target: nil, action: nil)
         navigationItem.rightBarButtonItem = createButton
         
-        firstInputView.titleLabel.text    = "Имя"
-        lastNameInputView.titleLabel.text = "Фамилия"
-        emailInputView.titleLabel.text    = "Email"
+        let firstNameIsValid = firstNameInputView.setup(withTitle: "Имя", inputType: .name)
+        let lastNameIsValid = lastNameInputView.setup(withTitle: "Фамилия", inputType: .name)
+        let emailIsValid = emailInputView.setup(withTitle: "Email", inputType: .email)
         
         
+        
+    
     }
 }

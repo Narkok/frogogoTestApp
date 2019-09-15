@@ -13,7 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreateUserViewController" customModule="FrogogoTestApp" customModuleProvider="target">
             <connections>
                 <outlet property="emailInputView" destination="iPM-V3-PCs" id="pi3-jG-Wd2"/>
-                <outlet property="firstInputView" destination="I2Q-CY-puo" id="nEx-Md-Dzs"/>
+                <outlet property="firstNameInputView" destination="I2Q-CY-puo" id="nEx-Md-Dzs"/>
                 <outlet property="lastNameInputView" destination="9Yr-4I-dUD" id="eRm-BL-wGE"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
