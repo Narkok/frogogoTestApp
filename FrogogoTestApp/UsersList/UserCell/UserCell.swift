@@ -36,6 +36,7 @@ class UserCell: UITableViewCell {
         }
         else {
             avatarImageView.image = UIImage(named: "emptyAvatar")
+            avatarImageView.backgroundColor = .color(by: user.id)
         }
     }
 }
