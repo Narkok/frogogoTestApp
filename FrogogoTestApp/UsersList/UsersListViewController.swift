@@ -23,10 +23,9 @@ class UsersListViewController: UIViewController {
         tableView.alpha = 0
         
         // Загрузка данных в tableView
-        viewModel.users.drive(tableView.rx.items) { tableView, row, item in
+        viewModel.users.drive(tableView.rx.items) { tableView, row, user in
             let cell = tableView.getCell(forClass: UserCell.self)
-            cell.nameLabel.text = "\(item.firstName) \(item.lastName)"
-            cell.emailLabel.text = item.email
+            cell.setup(for: user)
             return cell
         }.disposed(by: dispodeBag)
     
@@ -48,10 +47,10 @@ class UsersListViewController: UIViewController {
         }).disposed(by: dispodeBag)
         
         // Отправка выбранного пользователя в viewModel
-        tableView.rx.modelSelected(UserInfo.self)
-            .subscribe(onNext: { [weak self] user in
-                print(user)
-            }).disposed(by: dispodeBag)
+//        tableView.rx.modelSelected(UserInfo.self)
+//            .subscribe(onNext: { [weak self] user in
+//                print(user)
+//            }).disposed(by: dispodeBag)
         
     }
 }
