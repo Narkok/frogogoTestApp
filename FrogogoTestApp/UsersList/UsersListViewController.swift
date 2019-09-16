@@ -66,10 +66,13 @@ class UsersListViewController: UIViewController {
         // Переход на экран редактирования пользователя
         tableView.rx.modelSelected(UserInfo.self)
             .subscribe(onNext: { [weak self] user in
+                guard let self = self else { return }
                 let createUserViewControler = UserDetailsViewController()
                 createUserViewControler.user = user
-                self?.navigationController?.pushViewController(createUserViewControler, animated: true)
+                self.navigationController?.pushViewController(createUserViewControler, animated: true)
             }).disposed(by: disposeBag)
         
+        // Отправка запроса обновление списка
+        viewModel.loadData.accept(())
     }
 }

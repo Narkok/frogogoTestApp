@@ -38,33 +38,29 @@ class UserDetailsViewController: UIViewController {
         createButton.rx.tap.bind(to: viewModel.createButton).disposed(by: disposeBag)
         
         // Настройка полей ввода и отравка результатов в viewModel
-        firstNameInputView.setup(withTitle: "Имя", text: user?.firstName ?? "", inputType: .name)
+        firstNameInputView.setup(withTitle: "Имя", text: user?.firstName ?? "Loretta", inputType: .name)
             .bind(to: viewModel.firstName)
             .disposed(by: disposeBag)
         
-        lastNameInputView.setup(withTitle: "Фамилия", text: user?.lastName ?? "", inputType: .name)
+        lastNameInputView.setup(withTitle: "Фамилия", text: user?.lastName ?? "Chavez", inputType: .name)
             .bind(to: viewModel.lastName)
             .disposed(by: disposeBag)
         
-        emailInputView.setup(withTitle: "Email", text: user?.email ?? "", inputType: .email)
+        emailInputView.setup(withTitle: "Email", text: user?.email ?? "lora@mail.com", inputType: .email)
             .bind(to: viewModel.email)
             .disposed(by: disposeBag)
         
-        avatarURLinputView.setup(withTitle: "URL аватарки", text: user?.email ?? "", inputType: .avatarURL)
+        avatarURLinputView.setup(withTitle: "URL аватарки", text: user?.avatarUrl ?? "http://nrkk.ru/frogogoTestAppAvatars/avatar5.png", inputType: .avatarURL)
             .bind(to: viewModel.avatarURL)
             .disposed(by: disposeBag)
         
-        
-        
         // Вернуться на предыдущий экран
-        viewModel.requestResult?.drive(onNext:{ [weak self] _ in
+        viewModel.requestResult?.drive(onNext:{ [weak self] result in
             self?.navigationController?.popViewController(animated: true)
         }).disposed(by: disposeBag)
         
         // Активация кнопки 'Создать'
-        viewModel.buttonIsActive?
-            .drive(createButton.rx.isEnabled)
-            .disposed(by: disposeBag)
+        viewModel.buttonIsActive?.drive(createButton.rx.isEnabled).disposed(by: disposeBag)
         
         // Блокировка кнопки во время отправки запроса
         viewModel.blockScreen?.drive(onNext:{ [weak self, createButton] in

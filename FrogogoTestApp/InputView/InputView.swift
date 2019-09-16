@@ -49,6 +49,8 @@ class InputView: NibView {
         let inputText = textField.rx.controlEvent(.editingChanged)
             .withLatestFrom(textField.rx.text)
             .map { $0 ?? "" }
+            .startWith(text)
+            .debounce(.microseconds(200), scheduler: MainScheduler.instance)
         
         
         // Валидность введенной строки
@@ -78,6 +80,7 @@ class InputView: NibView {
         // Результат Observable из строки и её валидности
         let result = Observable.combineLatest(isInputValid, inputText)
             .map { (isValid: $0, string: $1) }
+            .startWith((isValid: text != "", string: text))
         
         return result
     }

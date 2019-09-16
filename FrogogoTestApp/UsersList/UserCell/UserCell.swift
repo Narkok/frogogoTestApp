@@ -30,7 +30,8 @@ class UserCell: UITableViewCell {
         emailLabel.text = user.email
         
         // Загрузка аватарки, если есть
-        if let avatarUrl = user.avatarUrl, avatarUrl != "", let url = URL(string: avatarUrl) {
+        if let avatarUrl = user.avatarUrl, let url = URL(string: avatarUrl) {
+//        if let url = URL(string: user.avatarUrl) {
             avatarImageView.kf.setImage(with: url)
         }
         else {

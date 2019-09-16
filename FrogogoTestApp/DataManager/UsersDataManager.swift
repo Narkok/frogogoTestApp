@@ -14,12 +14,10 @@ import Moya
 class UsersDataManager {
     
     let result = PublishRelay<Event<[UserInfo]>>()
-    
     static private let provider = MoyaProvider<UsersAPIRequest>()
     
-    
     /// Отправка GET запроса
-    func getData() {
+    func getData() -> PublishRelay<Event<[UserInfo]>> {
         UsersDataManager.provider.request(.get, completion: { [weak self] result in
             switch result {
             case .success(let response):
@@ -31,6 +29,7 @@ class UsersDataManager {
             case .failure(_): self?.result.accept(.error(UsersDataManagerError(text: "Ошибка при запросе данных")))
             }
         })
+        return result
     }
     
     /// Отправка POST запроса
