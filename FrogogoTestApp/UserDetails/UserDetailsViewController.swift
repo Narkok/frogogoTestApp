@@ -20,6 +20,8 @@ class UserDetailsViewController: UIViewController {
     @IBOutlet weak var firstNameInputView: InputView!
     @IBOutlet weak var lastNameInputView: InputView!
     @IBOutlet weak var emailInputView: InputView!
+    @IBOutlet weak var avatarURLinputView: InputView!
+    
     @IBOutlet weak var inputs: UIView!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -47,6 +49,12 @@ class UserDetailsViewController: UIViewController {
         emailInputView.setup(withTitle: "Email", text: user?.email ?? "", inputType: .email)
             .bind(to: viewModel.email)
             .disposed(by: disposeBag)
+        
+        avatarURLinputView.setup(withTitle: "URL аватарки", text: user?.email ?? "", inputType: .avatarURL)
+            .bind(to: viewModel.avatarURL)
+            .disposed(by: disposeBag)
+        
+        
         
         // Вернуться на предыдущий экран
         viewModel.requestResult?.drive(onNext:{ [weak self] _ in

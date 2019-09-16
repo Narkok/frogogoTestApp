@@ -15,6 +15,7 @@ class UserDetailsViewModel {
     
     /// Входы из контроллера
     let createButton = PublishRelay<Void>()
+    let avatarURL = PublishRelay<(isValid: Bool, string: String)>()
     let firstName = PublishRelay<(isValid: Bool, string: String)>()
     let lastName = PublishRelay<(isValid: Bool, string: String)>()
     let email = PublishRelay<(isValid: Bool, string: String)>()
