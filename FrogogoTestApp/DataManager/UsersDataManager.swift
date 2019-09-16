@@ -16,7 +16,7 @@ class UsersDataManager {
     let result = PublishRelay<Event<[UserInfo]>>()
     static private let provider = MoyaProvider<UsersAPIRequest>()
     
-    /// Отправка GET запроса
+    /// GET запрос
     func getData() -> PublishRelay<Event<[UserInfo]>> {
         UsersDataManager.provider.request(.get, completion: { [weak self] result in
             switch result {
@@ -32,7 +32,7 @@ class UsersDataManager {
         return result
     }
     
-    /// Отправка POST запроса
+    /// POST запрос
     func post(_ data: UserInfo) {
         UsersDataManager.provider.request(.post(data: data), completion: { [weak self] result in
             switch result {
@@ -42,7 +42,7 @@ class UsersDataManager {
         })
     }
     
-    /// Отправка PATCH запроса
+    /// PATCH запрос
     func patch(_ data: UserInfo) {
         UsersDataManager.provider.request(.patch(data: data), completion: { [weak self] result in
             switch result {

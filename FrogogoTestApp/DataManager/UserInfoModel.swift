@@ -8,7 +8,10 @@
 
 
 /// Модель структуры пользователя
-struct UserInfo: Codable {
+struct UserInfo: Codable, Comparable {
+    static func < (lhs: UserInfo, rhs: UserInfo) -> Bool {
+        return lhs.id < rhs.id
+    }
     
     let id: Int
     let firstName: String

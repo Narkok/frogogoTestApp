@@ -18,20 +18,19 @@ class UserCell: UITableViewCell {
 
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         super.setHighlighted(highlighted, animated: animated)
-        // Установка цвета фона выделенной ячейки
+        /// Установка цвета фона выделенной ячейки
         backgroundColor = .init(white: highlighted ? 0.9 : 1, alpha: 1)
     }
     
     /// Настройка ячейки для отображения пользователя
     func setup(for user: UserInfo) {
         
-        // Установка надписей
+        /// Установка надписей
         nameLabel.text = "\(user.firstName) \(user.lastName)"
         emailLabel.text = user.email
         
-        // Загрузка аватарки, если есть
+        /// Загрузка аватарки, если есть
         if let avatarUrl = user.avatarUrl, let url = URL(string: avatarUrl) {
-//        if let url = URL(string: user.avatarUrl) {
             avatarImageView.kf.setImage(with: url)
         }
         else {

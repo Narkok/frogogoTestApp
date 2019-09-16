@@ -18,7 +18,7 @@ class InputView: NibView {
     @IBOutlet weak var bottomLine: UIView!
     @IBOutlet weak var bottomLineHeightConstraint: NSLayoutConstraint!
     
-    private let bottomLineSelectedHeight: CGFloat = 3
+    private let bottomLineSelectedHeight: CGFloat = 4
     private let bottomLineDeselectedHeight: CGFloat = 2
     
     private let bottomLineErrorColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
@@ -35,7 +35,7 @@ class InputView: NibView {
         titleLabel.text = title
         textField.text = text
         
-        // Анимация выбора поля ввода
+        /// Анимация выбора поля ввода
         textField.rx.controlEvent(.editingDidBegin).subscribe(onNext:{ [weak self] in
             guard let self = self else { return }
             self.bottomLineHeightConstraint.constant = self.bottomLineSelectedHeight
@@ -45,7 +45,7 @@ class InputView: NibView {
             })
         }).disposed(by: disposeBag)
         
-        // Введенная в поле строка
+        /// Введенная в поле строка
         let inputText = textField.rx.controlEvent(.editingChanged)
             .withLatestFrom(textField.rx.text)
             .map { $0 ?? "" }
@@ -53,18 +53,18 @@ class InputView: NibView {
             .debounce(.microseconds(200), scheduler: MainScheduler.instance)
         
         
-        // Валидность введенной строки
+        /// Валидность введенной строки
         let isInputValid = inputText
             .map { InputView.check($0, for: inputType) }
 
         
-        // Конец ввода строки в поле
+        /// Конец ввода строки в поле
         let onEditingDidEnd = textField.rx.controlEvent(.editingDidEnd)
             .withLatestFrom(isInputValid)
         
         
-        // Анимация отмены выделения поля
-        // Покрасить линию в цвет в зависимости от валидности введенных данных
+        /// Анимация отмены выделения поля
+        /// Покрасить линию в цвет в зависимости от валидности введенных данных
         onEditingDidEnd.subscribe(onNext: { [weak self] isValid in
             guard let self = self else { return }
             self.bottomLineHeightConstraint.constant = self.bottomLineDeselectedHeight
@@ -77,7 +77,7 @@ class InputView: NibView {
         }).disposed(by: disposeBag)
         
         
-        // Результат Observable из строки и её валидности
+        /// Результат Observable из строки и её валидности
         let result = Observable.combineLatest(isInputValid, inputText)
             .map { (isValid: $0, string: $1) }
             .startWith((isValid: text != "", string: text))
@@ -97,17 +97,17 @@ class InputView: NibView {
     /// Проверка валидности введенной строки
     static func check(_ string: String, for type: Type) -> Bool {
         switch type {
-        // Правильный формат почты
+        /// Формат почты
         case .email:
-            let emailRegEx = "([A-Z0-9a-z._%+-])+@([A-Za-z0-9.-])+\\.[A-Za-z]{2,64}"
+            let emailRegEx = "([A-Z0-9a-z._%+-])+@([A-Za-z0-9.-])+\\.[A-Za-z]{1,64}"
             let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
             return emailTest.evaluate(with: string)
          
-        // Непустая строка для имени
+        /// Непустая строка для имени
         case .name:
             return string != ""
             
-        // Любой тест для ссылки на аватарку
+        /// Любой тест для ссылки на аватарку
         case .avatarURL:
             return true
         }

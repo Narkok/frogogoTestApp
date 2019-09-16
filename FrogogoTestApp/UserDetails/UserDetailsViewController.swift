@@ -16,6 +16,7 @@ class UserDetailsViewController: UIViewController {
     var user: UserInfo?
     
     let disposeBag = DisposeBag()
+    let userSaved = PublishRelay<Void>()
     
     @IBOutlet weak var firstNameInputView: InputView!
     @IBOutlet weak var lastNameInputView: InputView!
@@ -32,37 +33,38 @@ class UserDetailsViewController: UIViewController {
         viewModel = UserDetailsViewModel(for: user == nil ? .post : .patch, userID: user?.id)
         guard let viewModel = viewModel else { return } 
         
-        // Кнопка 'создать' в навбаре
+        /// Кнопка 'Создать' в навбаре
         let createButton = UIBarButtonItem(title: "Сохранить", style: .plain, target: nil, action: nil)
         navigationItem.rightBarButtonItem = createButton
         createButton.rx.tap.bind(to: viewModel.createButton).disposed(by: disposeBag)
         
-        // Настройка полей ввода и отравка результатов в viewModel
-        firstNameInputView.setup(withTitle: "Имя", text: user?.firstName ?? "Loretta", inputType: .name)
+        /// Настройка полей ввода и отравка результатов в viewModel
+        firstNameInputView.setup(withTitle: "Имя", text: user?.firstName ?? "", inputType: .name)
             .bind(to: viewModel.firstName)
             .disposed(by: disposeBag)
         
-        lastNameInputView.setup(withTitle: "Фамилия", text: user?.lastName ?? "Chavez", inputType: .name)
+        lastNameInputView.setup(withTitle: "Фамилия", text: user?.lastName ?? "", inputType: .name)
             .bind(to: viewModel.lastName)
             .disposed(by: disposeBag)
         
-        emailInputView.setup(withTitle: "Email", text: user?.email ?? "lora@mail.com", inputType: .email)
+        emailInputView.setup(withTitle: "Email", text: user?.email ?? "", inputType: .email)
             .bind(to: viewModel.email)
             .disposed(by: disposeBag)
         
-        avatarURLinputView.setup(withTitle: "URL аватарки", text: user?.avatarUrl ?? "http://nrkk.ru/frogogoTestAppAvatars/avatar5.png", inputType: .avatarURL)
+        avatarURLinputView.setup(withTitle: "URL аватарки", text: user?.avatarUrl ?? "", inputType: .avatarURL)
             .bind(to: viewModel.avatarURL)
             .disposed(by: disposeBag)
         
-        // Вернуться на предыдущий экран
+        /// Вернуться на предыдущий экран
         viewModel.requestResult?.drive(onNext:{ [weak self] result in
+            self?.userSaved.accept(())
             self?.navigationController?.popViewController(animated: true)
         }).disposed(by: disposeBag)
         
-        // Активация кнопки 'Создать'
+        /// Активация кнопки 'Создать'
         viewModel.buttonIsActive?.drive(createButton.rx.isEnabled).disposed(by: disposeBag)
         
-        // Блокировка кнопки во время отправки запроса
+        /// Блокировка кнопки во время отправки запроса
         viewModel.blockScreen?.drive(onNext:{ [weak self, createButton] in
             createButton.isEnabled = false
             self?.view.endEditing(true)

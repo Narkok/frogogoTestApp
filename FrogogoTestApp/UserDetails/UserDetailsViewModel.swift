@@ -32,23 +32,23 @@ class UserDetailsViewModel {
     
     init(for requestType: RequestType, userID: Int?) {
         
-        // Все данные валидны
+        /// Все данные валидны
         let isValid = Observable.combineLatest(firstName, lastName, email, avatarURL)
             .filter { $0.0.isValid && $0.1.isValid && $0.2.isValid }
             .map { (firstName: $0.0.string, lastName: $0.1.string, email: $0.2.string, avatarURL: $0.3.string) }
         
-        // Активация кнопки 'Создать'
+        /// Активация кнопки 'Создать'
         let buttonIsActive = Observable.combineLatest(firstName, lastName, email)
             .map { $0.0.isValid && $0.1.isValid && $0.2.isValid }
             .asDriver(onErrorJustReturn: true)
         
-        // Блокировка экрана
+        /// Блокировка экрана
         let blockScreen = createButton
             .withLatestFrom(isValid)
             .map {_ in ()}
             .asDriver(onErrorJustReturn: ())
         
-        // Результат отправки POST запроса с данными нового пользователя
+        /// Результат отправки запроса с данными нового пользователя
         let requestResult = createButton.withLatestFrom(isValid)
             .map { UserInfo(id: userID ?? 0,
                             firstName: $0.firstName,
