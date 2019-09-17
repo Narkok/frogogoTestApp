@@ -31,7 +31,7 @@ class UserDetailsViewController: UIViewController {
         super.viewDidLoad()
         title = user == nil ? "Новый пользователь" : "\(user!.firstName) \(user!.lastName)"
         viewModel = UserDetailsViewModel(for: user == nil ? .post : .patch, userID: user?.id)
-        guard let viewModel = viewModel else { return } 
+        guard let viewModel = viewModel else { return }
         
         /// Кнопка 'Создать' в навбаре
         let createButton = UIBarButtonItem(title: "Сохранить", style: .plain, target: nil, action: nil)

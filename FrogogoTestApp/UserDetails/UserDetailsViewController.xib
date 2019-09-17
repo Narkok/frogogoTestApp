@@ -40,9 +40,6 @@
                                         <constraint firstAttribute="height" constant="60" id="i6d-EP-40j"/>
                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="wop-qw-H80"/>
                                     </constraints>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Имя"/>
-                                    </userDefinedRuntimeAttributes>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Yr-4I-dUD" customClass="InputView" customModule="FrogogoTestApp" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="75" width="375" height="60"/>
@@ -51,9 +48,6 @@
                                         <constraint firstAttribute="height" constant="60" id="8qG-jn-1if"/>
                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="Krs-Yo-gnm"/>
                                     </constraints>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Имя"/>
-                                    </userDefinedRuntimeAttributes>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iPM-V3-PCs" customClass="InputView" customModule="FrogogoTestApp" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="150" width="375" height="60"/>
@@ -62,9 +56,6 @@
                                         <constraint firstAttribute="height" constant="60" id="f3S-oH-zmt"/>
                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="mFj-ZT-tFH"/>
                                     </constraints>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Имя"/>
-                                    </userDefinedRuntimeAttributes>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yoe-HZ-z8r" customClass="InputView" customModule="FrogogoTestApp" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="225" width="375" height="60"/>
@@ -73,9 +64,6 @@
                                         <constraint firstAttribute="height" constant="60" id="F2T-fJ-jr0"/>
                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="vJN-tp-TGF"/>
                                     </constraints>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Имя"/>
-                                    </userDefinedRuntimeAttributes>
                                 </view>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

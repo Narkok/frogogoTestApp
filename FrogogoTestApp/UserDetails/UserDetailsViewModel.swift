@@ -54,7 +54,8 @@ class UserDetailsViewModel {
                             firstName: $0.firstName,
                             lastName: $0.lastName,
                             email: $0.email,
-                            avatarUrl: $0.avatarURL) }
+                            avatarUrl: $0.avatarURL,
+                            updatedAt: "") }
             .flatMapLatest { [weak self] data -> Observable<Event<[UserInfo]>> in
                 guard let self = self else { return .error(UsersDataManagerError(text: "Ошибка при отправке данных")) }
                 if requestType == .post  { self.dataManager.post(data) }
