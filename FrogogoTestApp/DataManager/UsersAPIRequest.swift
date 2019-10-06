@@ -8,7 +8,7 @@
 
 import Moya
 
-private let testBaseURL = URL(string: "https://frogogo-test.herokuapp.com")!
+private let localhostURL = URL(string: "http://localhost:8000")!
 
 enum UsersAPIRequest {
     case get
@@ -27,12 +27,12 @@ extension UsersAPIRequest: TargetType {
         }
     }
     
-    var baseURL: URL { return testBaseURL }
+    var baseURL: URL { return localhostURL }
     
     var path: String {
         switch self {
-        case .get, .post: return "users.json"
-        case .patch(let data): return "users/\(data.id).json"
+        case .get, .post: return "users"
+        case .patch(let data): return "users/\(data.id)"
         }
     }
     

@@ -30,7 +30,7 @@ class UserDetailsViewModel {
         case patch
     }
     
-    init(for requestType: RequestType, userID: Int?) {
+    init(for requestType: RequestType, userID: String?) {
         
         /// Все данные валидны
         let isValid = Observable.combineLatest(firstName, lastName, email, avatarURL)
@@ -50,11 +50,11 @@ class UserDetailsViewModel {
         
         /// Результат отправки запроса с данными нового пользователя
         let requestResult = createButton.withLatestFrom(isValid)
-            .map { UserInfo(id: userID ?? 0,
+            .map { UserInfo(id: userID ?? "",
                             firstName: $0.firstName,
                             lastName: $0.lastName,
                             email: $0.email,
-                            avatarUrl: $0.avatarURL,
+                            avatarURL: $0.avatarURL,
                             updatedAt: "") }
             .flatMapLatest { [weak self] data -> Observable<Event<[UserInfo]>> in
                 guard let self = self else { return .error(UsersDataManagerError(text: "Ошибка при отправке данных")) }

@@ -20,19 +20,15 @@ struct UserInfo: Codable, Comparable {
         return dateL < dateR
     }
     
-    let id: Int
+    let id: String
     let firstName: String
     let lastName: String
     let email: String
-    let avatarUrl: String?
+    let avatarURL: String?
     let updatedAt: String
     
     enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case firstName = "first_name"
-        case lastName = "last_name"
-        case email = "email"
-        case avatarUrl = "avatar_url"
-        case updatedAt = "updated_at"
+        case id = "_id"
+        case firstName, lastName, email, avatarURL, updatedAt
     }
 }

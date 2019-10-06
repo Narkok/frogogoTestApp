@@ -51,7 +51,7 @@ class UserDetailsViewController: UIViewController {
             .bind(to: viewModel.email)
             .disposed(by: disposeBag)
         
-        avatarURLinputView.setup(withTitle: "URL аватарки", text: user?.avatarUrl ?? "", inputType: .avatarURL)
+        avatarURLinputView.setup(withTitle: "URL аватарки", text: user?.avatarURL ?? "", inputType: .avatarURL)
             .bind(to: viewModel.avatarURL)
             .disposed(by: disposeBag)
         
