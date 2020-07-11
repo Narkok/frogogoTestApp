@@ -28,9 +28,10 @@ class UsersListViewModel {
             .flatMapLatest { [weak self] () -> PublishRelay<Event<[UserInfo]>> in
                 guard let self = self else { return .init() }
                 return self.dataManager.getData()
-            }
-            .map { $0.element ?? [] }
-            .map { $0.sorted(by: { $0 > $1 })}
+        }
+        .map { $0.element ?? [] }
+        .map { $0.sorted(by: { $0 > $1 })}
+        .share(replay: 1)
         
         
         /// Состояние загрузки
