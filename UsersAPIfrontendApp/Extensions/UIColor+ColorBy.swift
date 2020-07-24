@@ -18,8 +18,8 @@ public extension UIColor {
         let id = strId
             .filter{ $0.isNumber }
             .reversed()
-            .prefix(10)
             .map { String($0) }
+            .prefix(10)
             .reduce("", +)
         return colors[(Int(id) ?? 0) % colors.count]
     }
