@@ -11,7 +11,7 @@ import RxSwift
 
 class UserDetailsViewModel {
     
-    private let dataManager = UsersDataManager()
+    private static let dataManager = UsersDataManager()
     
     /// Входы из контроллера
     let createButton = PublishRelay<Void>()
@@ -21,9 +21,9 @@ class UserDetailsViewModel {
     let email = PublishRelay<(isValid: Bool, string: String)>()
     
     /// Выходы в контроллер
-    var requestResult: Driver<Event<[UserInfo]>>?
-    var blockScreen: Driver<Void>?
-    var buttonIsActive: Driver<Bool>?
+    let requestResult: Driver<Bool>
+    let blockScreen: Driver<Void>
+    let buttonIsActive: Driver<Bool>
     
     enum RequestType {
         case post
@@ -55,14 +55,16 @@ class UserDetailsViewModel {
                             lastName: $0.lastName,
                             email: $0.email,
                             avatarURL: $0.avatarURL,
-                            updatedAt: "") }
-            .flatMapLatest { [weak self] data -> Observable<Event<[UserInfo]>> in
-                guard let self = self else { return .error(UsersDataManagerError(text: "Ошибка при отправке данных")) }
-                if requestType == .post  { self.dataManager.post(data) }
-                if requestType == .patch { self.dataManager.patch(data) }
-                return self.dataManager.result.asObservable()
-            }.share(replay: 1, scope: .forever)
-            .asDriver(onErrorJustReturn: .error(UsersDataManagerError(text: "Ошибка перевода в Driver")))
+                            updatedAt: "")
+            }
+            .flatMapLatest { data -> Observable<Event<Bool>> in
+                if requestType == .post  { return UserDetailsViewModel.dataManager.post(data) }
+                if requestType == .patch { return UserDetailsViewModel.dataManager.patch(data) }
+                return .never()
+            }
+            .map { $0.element ?? false }
+            .share(replay: 1)
+            .asDriver(onErrorJustReturn: false)
         
         self.requestResult = requestResult
         self.blockScreen = blockScreen

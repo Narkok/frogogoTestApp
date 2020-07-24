@@ -8,7 +8,7 @@
 
 import Moya
 
-private let localhostURL = URL(string: "http://localhost:8000")!
+private let localhostURL = URL(string: "http://users.342634-cf64550.tmweb.ru")!
 
 enum UsersAPIRequest {
     case get

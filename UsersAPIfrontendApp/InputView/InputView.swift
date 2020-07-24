@@ -23,7 +23,7 @@ class InputView: NibView {
     
     private let bottomLineErrorColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
     private let bottomLineNormalColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
-    private let bottomLineSelectedColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+    private let bottomLineValidColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
     
     let disposeBag = DisposeBag()
     
@@ -41,7 +41,7 @@ class InputView: NibView {
             self.bottomLineHeightConstraint.constant = self.bottomLineSelectedHeight
             UIView.animate(withDuration: 0.3, animations: { [weak self] in
                 self?.layoutIfNeeded()
-                self?.bottomLine.backgroundColor = self?.bottomLineSelectedColor
+                self?.bottomLine.backgroundColor = self?.bottomLineNormalColor
             })
         }).disposed(by: disposeBag)
         
@@ -72,7 +72,7 @@ class InputView: NibView {
                 guard let self = self else { return }
                 self.layoutIfNeeded()
                 // Цвет линии в зависимости от валидности строки
-                self.bottomLine.backgroundColor = isValid ? self.bottomLineNormalColor : self.bottomLineErrorColor
+                self.bottomLine.backgroundColor = isValid ? self.bottomLineValidColor : self.bottomLineErrorColor
             })
         }).disposed(by: disposeBag)
         

@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UsersListViewController" customModule="FrogogoTestApp" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UsersListViewController" customModule="UsersAPIfrontendApp" customModuleProvider="target">
             <connections>
+                <outlet property="emptyListLabel" destination="4YR-Qf-CJm" id="LsZ-A6-tiF"/>
                 <outlet property="loadingIndicator" destination="0Zj-ed-huY" id="chd-xH-LAx"/>
                 <outlet property="tableView" destination="ZYV-2h-vzZ" id="tMN-Pa-UwU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -31,11 +30,19 @@
                     <rect key="frame" x="197" y="438" width="20" height="20"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </activityIndicatorView>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Список пользователей пуст" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4YR-Qf-CJm">
+                    <rect key="frame" x="95.5" y="437.5" width="223.5" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="ZYV-2h-vzZ" secondAttribute="bottom" id="0X5-WF-y6d"/>
+                <constraint firstItem="4YR-Qf-CJm" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="50Z-cE-vRi"/>
                 <constraint firstItem="ZYV-2h-vzZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="JlF-HY-gCc"/>
+                <constraint firstItem="4YR-Qf-CJm" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="NLf-9f-ZNn"/>
                 <constraint firstItem="0Zj-ed-huY" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="SPw-gp-Lnb"/>
                 <constraint firstItem="0Zj-ed-huY" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="TJT-QE-HER"/>
                 <constraint firstItem="ZYV-2h-vzZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Tn1-71-Lmz"/>

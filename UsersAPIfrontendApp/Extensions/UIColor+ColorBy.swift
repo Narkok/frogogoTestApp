@@ -15,6 +15,12 @@ public extension UIColor {
                       #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1),#colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1),#colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1),
                       #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1),#colorLiteral(red: 0.1215686277, green: 0.01176470611, blue: 0.4235294163, alpha: 1),#colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1),
                       #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1),#colorLiteral(red: 1, green: 0, blue: 0.1411905885, alpha: 1),#colorLiteral(red: 0.9779763818, green: 0.410820365, blue: 0.06041189283, alpha: 1)]
-        return colors[abs(strId.hashValue) % colors.count]
+        let id = strId
+            .filter{ $0.isNumber }
+            .reversed()
+            .prefix(10)
+            .map { String($0) }
+            .reduce("", +)
+        return colors[(Int(id) ?? 0) % colors.count]
     }
 }

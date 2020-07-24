@@ -16,6 +16,7 @@ class UsersListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var emptyListLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +35,7 @@ class UsersListViewController: UIViewController {
         
         /// Запрос на обновление списка
         refreshButton.rx.tap
-            .bind(to: viewModel.loadData)
+            .bind(to: viewModel.reloadData)
             .disposed(by: disposeBag)
         
         
@@ -44,7 +45,26 @@ class UsersListViewController: UIViewController {
             self?.navigationController?.pushViewController(createUserViewControler, animated: true)
         }).disposed(by: disposeBag)
         
+        
+        /// Показать надпись при пустом списке
+        viewModel.emptyList
+            .map { !$0 }
+            .drive(emptyListLabel.rx.isHidden)
+            .disposed(by: disposeBag)
+        
+        
+        /// Спятать таблицу при пустом списке
+        viewModel.emptyList
+            .drive(tableView.rx.isHidden)
+            .disposed(by: disposeBag)
+        
+        
+        /// Показать надпись во время загрузки
+        viewModel.isLoading.filter { $0 }
+            .drive(emptyListLabel.rx.isHidden)
+            .disposed(by: disposeBag)
 
+        
         /// Загрузка данных в tableView
         viewModel.users.drive(tableView.rx.items) { tableView, row, user in
             let cell = tableView.getCell(forClass: UserCell.self)
@@ -61,16 +81,16 @@ class UsersListViewController: UIViewController {
         
         /// Показать tableView
         viewModel.isLoading.drive(onNext: { isLoading in
-            UIView.animate(withDuration: 0.5, animations: { [weak self] in
+            UIView.animate(withDuration: 0.15, animations: { [weak self] in
                 self?.tableView.alpha = isLoading ? 0 : 1
             })
         }).disposed(by: disposeBag)
         
         
         /// Oшибки
-        viewModel.error.drive(onNext: { error in
-            print(error)
-        }).disposed(by: disposeBag)
+        viewModel.error
+            .drive(onNext: { print($0) })
+            .disposed(by: disposeBag)
         
         
         /// Переход на экран редактирования пользователя
@@ -80,11 +100,10 @@ class UsersListViewController: UIViewController {
                 let createUserViewControler = UserDetailsViewController()
                 createUserViewControler.user = user
                 /// Обновить список после изменения/добавления пользователя
-                createUserViewControler.userSaved.bind(to: self.viewModel.loadData).disposed(by: createUserViewControler.disposeBag)
+                createUserViewControler
+                    .reloadData.bind(to: self.viewModel.reloadData)
+                    .disposed(by: createUserViewControler.disposeBag)
                 self.navigationController?.pushViewController(createUserViewControler, animated: true)
             }).disposed(by: disposeBag)
-        
-        /// Отправка запроса обновление списка
-        viewModel.loadData.accept(())
     }
 }

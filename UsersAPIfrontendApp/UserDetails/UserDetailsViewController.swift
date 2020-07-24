@@ -16,7 +16,7 @@ class UserDetailsViewController: UIViewController {
     var user: UserInfo?
     
     let disposeBag = DisposeBag()
-    let userSaved = PublishRelay<Void>()
+    let reloadData = PublishRelay<Void>()
     
     @IBOutlet weak var firstNameInputView: InputView!
     @IBOutlet weak var lastNameInputView: InputView!
@@ -26,6 +26,13 @@ class UserDetailsViewController: UIViewController {
     @IBOutlet weak var inputs: UIView!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var descriptionLabel: UILabel!
+    
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        reloadData.accept(())
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,16 +63,18 @@ class UserDetailsViewController: UIViewController {
             .disposed(by: disposeBag)
         
         /// Вернуться на предыдущий экран
-        viewModel.requestResult?.drive(onNext:{ [weak self] result in
-            self?.userSaved.accept(())
-            self?.navigationController?.popViewController(animated: true)
-        }).disposed(by: disposeBag)
+        viewModel.requestResult
+            .filter { $0 }
+            .drive(onNext:{ [weak self] _ in self?.navigationController?.popViewController(animated: true) })
+            .disposed(by: disposeBag)
         
         /// Активация кнопки 'Создать'
-        viewModel.buttonIsActive?.drive(createButton.rx.isEnabled).disposed(by: disposeBag)
+        viewModel.buttonIsActive
+            .drive(createButton.rx.isEnabled)
+            .disposed(by: disposeBag)
         
         /// Блокировка кнопки во время отправки запроса
-        viewModel.blockScreen?.drive(onNext:{ [weak self, createButton] in
+        viewModel.blockScreen.drive(onNext:{ [weak self, createButton] in
             createButton.isEnabled = false
             self?.view.endEditing(true)
             self?.descriptionLabel.isHidden = false
